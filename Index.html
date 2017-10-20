@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#222233"/>
+
+<style>
+@font-face {
+font-family: logo;
+src: url(fonts/IndieFlower.ttf);
+}
+html{
+font-size: 100%; /* 16px */
+text-shadow: 0px 0px 1px rgba(60,58,64,0.1);
+}
+body{
+margin: 0;
+}
+.FS-42{
+font-size: 3.4rem;
+position: absolute;
+z-index: 1;
+color: rgba(60,58,64,0.1) !important;
+}
+.FS-20{
+font-size: 1.25rem;
+}
+.FS-17{
+font-size: 1.06rem;
+}
+.FS-14{
+font-size: 0.87rem;
+}
+.header{
+display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+
+max-width: 100%;
+padding: 25px 40px;
+
+background-color: rgba(219,194,161,0.5);
+}
+.logo{
+font-family: logo !important;
+font-weight: 600;
+color: rgba(60,58,64,0.9);
+width: 120px;
+height: 45px;
+display: flex;
+flex-flow: column;
+align-content: center;
+align-items: center;
+justify-content: center;
+position: relative; 
+}
+.logo div{
+margin: 0.5px 1px !important;
+line-height: 1 !important;
+}
+.logo-up{
+display: flex;
+align-items: flex-end;
+}
+.logo-down{
+display: flex;
+align-items: flex-start;
+}
+</style>
+<article class="header">
+<main class="logo">
+<section class="logo-up">
+<div class="FS-20">
+Siluet
+</div>
+
+<div class="FS-14">
+Transcom
+</div>
+</section>
+
+<section class="logo-down">
+<div class="FS-14">
+Romania
+</div>
+        
+<div class="FS-17">
+Sibiu
+</div>
+</section>
+
+<span class="FS-42">
+SRL
+</span>
+</main>
+</article>
+
+<script src="javascript/jquery-3.2.1.min.js"></script>
+</body>
+</html>
