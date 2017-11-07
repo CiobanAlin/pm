@@ -3,8 +3,13 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#222233">
+<script src="./Index_files/jquery-3.2.1.min.js.download"></script>
 
 <style>
+@font-face {
+font-family: span;
+src: url(fonts/Pecita.otf);
+}
 @font-face {
 font-family: h235;
 src: url(fonts/WoodfordBournePRO-Medium.otf);
@@ -71,15 +76,27 @@ color: inherit;
 }
 
 .base{
-position: fixed;
+position: absolute;
 width: 100%;
 min-height: 100%;
 height: 100%;
-overflow-y: auto;
+overflow-x: auto;
+}
+.content{
+top: 100%;
+position: absolute;
+
+width: 100%;
+height: auto;
 }
 
 .FS-120{
 font-size: 7.5rem;
+}
+@media screen and (max-width: 500px){
+.FS-120{
+font-size: 18px;
+}    
 }
 .FS-42{
 font-size: 3.4rem;
@@ -99,6 +116,23 @@ font-size: 15px;
 .FS-14{
 font-size: 0.87rem;
 }
+h1{
+margin: 0 40px;
+text-align: auto;
+
+font-size: 70px;
+
+color: rgba(255,255,255,0.9);
+
+font-weight: 700;
+line-height: 1;
+text-transform: uppercase;
+}
+@media screen and (max-width: 500px){
+h1{
+font-size: 17px;
+}    
+}
 h2{
 font-size: 47px;
 font-weight: bold;
@@ -108,19 +142,27 @@ padding: 0;
 
 
 font-family: h235;
-color: rgba(56, 60, 80, 0.9);
+color: rgba(56, 60, 80, 1);
 text-transform: uppercase;
 text-align: center;
 }
+@media screen and (max-width: 500px){
+h2{
+font-size: 16px;
+}    
+}
 h3{
+margin: 40px;
+margin-top: 20px;
+
 font-size: 15px;
 letter-spacing: 3px;
 font-weight: 600;
 line-height: 1.5;
 
 font-family: h235;
-color: rgba(223, 166, 113, 0.9);
-border-bottom: 2px solid rgba(223, 166, 113, 0.9);
+color: rgba(223, 166, 113, 1);
+border-bottom: 2px solid rgba(223, 166, 113, 1);
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-image-outset: 0px;
@@ -128,17 +170,20 @@ border-image-repeat: stretch;
 border-image-slice: 100%;
 border-image-source: none;
 border-image-width: 1;
-border-left-color: rgb(223, 166, 113, 0.9);
+border-left-color: rgb(223, 166, 113, 1);
 border-left-style: none;
 border-left-width: 0px;
-border-right-color: rgb(223, 166, 113, 0.9);
+border-right-color: rgb(223, 166, 113, 1);
 border-right-style: none;
 border-right-width: 0px;
-border-top-color:rgba(223, 166, 113,0.9);
+border-top-color:rgba(223, 166, 113, 1);
 border-top-style: none;
 border-top-width: 0px;
 }
 h5{
+margin: 40px;
+margin-bottom: 0px;
+
 font-size: 13px;
 padding-bottom: 50px;
 font-family: h235;
@@ -156,6 +201,23 @@ text-align: center;
 
 color: rgba(56, 60, 80, 0.9);
 font-family: p;
+}
+span{
+margin: 0 40px;
+text-align: auto;
+
+font-size: 47px;
+
+font-weight: 400;
+line-height: 1.2;
+
+color: rgba(255,255,255,0.9);
+font-family: span;    
+}
+@media screen and (max-width: 500px){
+span{
+font-size: 16px;
+}    
 }
 .header-replace{
 height: 95px;
@@ -315,14 +377,34 @@ background-color: rgba(56, 60, 80,0.6) !important;
 background-position: 0% 0%;
 background-blend-mode: overlay;
 }
+@media screen and (max-width: 900px){
+.bk-home{
+background-size: 100% auto;    
+}
+}
 /* second */
-
+.bk-title{
+background-attachment: fixed;
+}
+/* last */
+.bk > h3,
+.bk > h2,
+.bk > p,
+.bk > h5{
+color: transparent !important;
+border: transparent !important;
+}
+.FlF-C{
+flex-flow: column;
+}
 </style>
 </head>
 <body>
+
 <div class="base">
 <article class="header-replace">
 </article>
+
 <article class="header">
 <main class="logo oactive">
 <section class="logo-up">
@@ -383,6 +465,94 @@ SILUET
 PRODUCTIE TRICOTAJE INTEGRALE
 </main>        
 </article>
+</div>
+
+<div class="content">
+<article class="articles">
+<main class="mains">
+<h5>
+A CULINARY PHILOSOPHY
+</h5>
+<h2>
+welcome
+</h2>
+<p>
+A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+</p>
+<h3>
+RESERVATIONS
+</h3>
+</main>
+
+<main class="mains bk bk-home">
+<!-- HIDDEN -->
+<h5>
+A CULINARY PHILOSOPHY
+</h5>
+<h2>
+welcome
+</h2>
+<p>
+A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+</p>
+<h3>
+RESERVATIONS
+</h3>
+<!-- =HIDDEN= -->
+</main>
+</article>
+
+<article class="articles articles-trp FlF-C">
+<span>
+descopera
+</span>
+<h1>
+POVESTEA NOASTRA
+</h1>
+</article>
+
+<article class="articles">
+<main class="mains bk bk-home">
+<!-- HIDDEN -->
+<h5>
+A CULINARY PHILOSOPHY
+</h5>
+<h2>
+welcome
+</h2>
+<p>
+A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+</p>
+<h3>
+RESERVATIONS
+</h3>
+<!-- =HIDDEN= -->
+</main>
+
+<main class="mains">
+<h5>
+A CULINARY PHILOSOPHY
+</h5>
+<h2>
+welcome
+</h2>
+<p>
+A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+</p>
+<h3>
+RESERVATIONS
+</h3>
+</main>
+</article>
+
+<article class="articles articles-trp FlF-C">
+<span>
+vezi
+</span>
+<h1>
+PRODUCTIA
+</h1>
+</article>
 
 <article class="articles">
 <main class="mains">
@@ -400,21 +570,67 @@ RESERVATIONS
 </h3>
 </main>
 
-<main class="mains bk-home">
+<main class="mains bk bk-home">
+<!-- HIDDEN -->
+<h5>
+A CULINARY PHILOSOPHY
+</h5>
+<h2>
+welcome
+</h2>
+<p>
+A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+</p>
+<h3>
+RESERVATIONS
+</h3>
+<!-- =HIDDEN= -->
 </main>
 </article>
 
-<article class="articles articles-trp">
-<main class="mains">
-yea
-</main>
+<article class="articles articles-trp FlF-C">
+<span>
+trebuie sa ne
+</span>
+<h1>
+CONTACTEZI
+</h1>
+</article>
         
+<article class="articles">
+<main class="mains bk bk-home">
+<!-- HIDDEN -->
+<h5>
+A CULINARY PHILOSOPHY
+</h5>
+<h2>
+welcome
+</h2>
+<p>
+A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+</p>
+<h3>
+RESERVATIONS
+</h3>
+<!-- =HIDDEN= -->
+</main>
+                        
 <main class="mains">
-sd
+<h5>
+A CULINARY PHILOSOPHY
+</h5>
+<h2>
+welcome
+</h2>
+<p>
+A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+</p>
+<h3>
+RESERVATIONS
+</h3>
 </main>
 </article>
-</div>
-<script src="./Index_files/jquery-3.2.1.min.js.download"></script>
 
+</div>
 </body>
 </html>
