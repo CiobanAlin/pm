@@ -6,6 +6,10 @@
 
 <style>
 @font-face {
+font-family: h235;
+src: url(fonts/WoodfordBournePRO-Medium.otf);
+}
+@font-face {
 font-family: logo;
 src: url(fonts/WoodfordBournePRO-Light.otf);
 }
@@ -17,21 +21,25 @@ src: url(fonts/Lato-Black.ttf);
 font-family: all;
 src: url("fonts/Myriad Pro Regular.ttf");
 }
+@font-face {
+font-family: p;
+src: url("fonts/Neuton-Regular.ttf");
+}
 *{
 box-sizing: border-box;
 margin: 0;
 padding: 0;
+-webkit-font-smoothing: antialiased;
 }
 html,body {
-    height:100%;
+height: 100%;
 }
 html{
 font-size: 100%; /* 16px */
 text-shadow: 0px 0px 1px rgba(60,58,64,0.1);
 }
 body{
-    width: 100%;
-height: 100%;
+width: 100%;
 overflow-y: auto;
    
 margin: 0;
@@ -65,6 +73,7 @@ color: inherit;
 .base{
 position: fixed;
 width: 100%;
+min-height: 100%;
 height: 100%;
 overflow-y: auto;
 }
@@ -89,6 +98,64 @@ font-size: 15px;
 }
 .FS-14{
 font-size: 0.87rem;
+}
+h2{
+font-size: 47px;
+font-weight: bold;
+line-height: 1;
+margin: 0 40px;
+padding: 0;
+
+
+font-family: h235;
+color: rgba(56, 60, 80, 0.9);
+text-transform: uppercase;
+text-align: center;
+}
+h3{
+font-size: 15px;
+letter-spacing: 3px;
+font-weight: 600;
+line-height: 1.5;
+
+font-family: h235;
+color: rgba(223, 166, 113, 0.9);
+border-bottom: 2px solid rgba(223, 166, 113, 0.9);
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-image-outset: 0px;
+border-image-repeat: stretch;
+border-image-slice: 100%;
+border-image-source: none;
+border-image-width: 1;
+border-left-color: rgb(223, 166, 113, 0.9);
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: rgb(223, 166, 113, 0.9);
+border-right-style: none;
+border-right-width: 0px;
+border-top-color:rgba(223, 166, 113,0.9);
+border-top-style: none;
+border-top-width: 0px;
+}
+h5{
+font-size: 13px;
+padding-bottom: 50px;
+font-family: h235;
+letter-spacing: 0.2em;
+
+color: rgba(56, 60, 80, 0.9);
+text-transform: uppercase;
+text-align: center;
+}
+p{
+font-size: 23px;
+
+margin: 20px 40px;
+text-align: center;
+
+color: rgba(56, 60, 80, 0.9);
+font-family: p;
 }
 .header-replace{
 height: 95px;
@@ -169,7 +236,7 @@ box-shadow: inset -2px 0px 0px 0px rgba(235,235,235,0.9);
 }
 
 .hero{
-height: calc(100% - 95px - 48px);
+min-height: calc(100% - 95px - 48px);
 width: 100%;
 
 display: flex;
@@ -198,6 +265,7 @@ word-spacing: 0.5em;
 .articles{
 min-height: calc(100% - 96px);
 height: calc(100% - 96px);
+position: relative;
 width: 100%;
     
 display: flex;
@@ -211,6 +279,12 @@ overflow: hidden;
 padding: 40px 20px;
 box-sizing: border-box;
 background-color: rgba(238, 241, 242, 0.9);
+box-shadow: 0px 0px 0px 1px rgba(60,58,64,0.1);
+}
+@media screen and (max-width: 900px){
+.articles{
+flex-flow: column;   
+}   
 }
 .articles-trp{
 background-color: transparent;
@@ -222,11 +296,15 @@ width: 100%;
 flex: 1;
 
 display: flex;
-flex-flow: row;
+flex-flow: column;
+justify-content: center;
+align-items: center;
+align-content: center;
 margin: 20px;
 box-sizing: border-box;
 
 background-color: rgba(255,255,255,0.9);
+box-shadow: 0px 0px 1px 0px rgba(60,58,64,0.1);
 }
 .bk-home{
 background-image: url('home.jpg');
@@ -308,7 +386,18 @@ PRODUCTIE TRICOTAJE INTEGRALE
 
 <article class="articles">
 <main class="mains">
-    yea
+<h5>
+A CULINARY PHILOSOPHY
+</h5>
+<h2>
+welcome
+</h2>
+<p>
+A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+</p>
+<h3>
+RESERVATIONS
+</h3>
 </main>
 
 <main class="mains bk-home">
