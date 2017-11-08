@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <!-- saved from url=(0077)file:///C:/Users/yoo_a/OneDrive/Documents/Git/SoAlenax/Work/Siluet/Index.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head>
+<!-- SEO -->
+<title>SILUET - productie tricotaje integrale</title>
+<meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Siluet ,producator tricotaje ,integral ,integrale, Siluet Transcom">
+
+<meta content="Suntem o companie din Sibiu Romania ce fabrica tricotaje integrale pentru firma dumneavoastra. Sunati la +4 0269 217 112  sau trimiteti email la office@siluetsib.ro " name="description">
+
+<meta name="KeyWord" content="siluet, tricotaje, integral">
+<!-- =SEO= -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#222233">
 <script src="./Index_files/jquery-3.2.1.min.js.download"></script>
@@ -46,7 +58,7 @@ text-shadow: 0px 0px 1px rgba(60,58,64,0.1);
 body{
 width: 100%;
 overflow-y: auto;
-   
+
 margin: 0;
 
 font-family: logo;
@@ -96,7 +108,7 @@ font-size: 7.5rem;
 @media screen and (max-width: 500px){
 .FS-120{
 font-size: 18px;
-}    
+}
 }
 .FS-42{
 font-size: 3.4rem;
@@ -118,7 +130,7 @@ font-size: 0.87rem;
 }
 h1{
 margin: 0 40px;
-text-align: auto;
+text-align: center;
 
 font-size: 70px;
 
@@ -131,7 +143,7 @@ text-transform: uppercase;
 @media screen and (max-width: 500px){
 h1{
 font-size: 17px;
-}    
+}
 }
 h2{
 font-size: 47px;
@@ -149,7 +161,7 @@ text-align: center;
 @media screen and (max-width: 500px){
 h2{
 font-size: 16px;
-}    
+}
 }
 h3{
 margin: 40px;
@@ -204,7 +216,7 @@ font-family: p;
 }
 span{
 margin: 0 40px;
-text-align: auto;
+text-align: center;
 
 font-size: 47px;
 
@@ -212,12 +224,12 @@ font-weight: 400;
 line-height: 1.2;
 
 color: rgba(255,255,255,0.9);
-font-family: span;    
+font-family: span;
 }
 @media screen and (max-width: 500px){
 span{
 font-size: 16px;
-}    
+}
 }
 .header-replace{
 height: 95px;
@@ -266,7 +278,7 @@ flex-flow: column;
 align-content: center;
 align-items: center;
 justify-content: center;
-position: relative; 
+position: relative;
 }
 .logo div{
 margin: 0.5px 1px !important;
@@ -329,15 +341,15 @@ min-height: calc(100% - 96px);
 height: calc(100% - 96px);
 position: relative;
 width: 100%;
-    
+
 display: flex;
 align-content: center;
-align-items: center;
+align-items: stretch;
 justify-content: center;
 flex-flow: row;
 flex-wrap: wrap;
 overflow: hidden;
-    
+
 padding: 40px 20px;
 box-sizing: border-box;
 background-color: rgba(238, 241, 242, 1);
@@ -345,15 +357,28 @@ box-shadow: 0px 0px 0px 1px rgba(60,58,64,0.1);
 }
 @media screen and (max-width: 900px){
 .articles{
-flex-flow: column;   
-}   
+flex-flow: column;
+}
 }
 .articles-trp{
-background-color: transparent;
+/*background-color: transparent;*/
+background-repeat: no-repeat;
+background-size:  100% auto;
+background-color: rgba(56, 60, 80,1);
+background-image: url('knitwear.jpg');
+background-position: 0% 80%;
+background-blend-mode: overlay;
+background-attachment: fixed;
+
+min-height: 620px;
+}
+@media screen and (max-width: 900px){
+.articles-trp{
+min-height: 0px;
+}
 }
 .articles > .mains{
-height: 100%;
-width: 100%;
+max-width: 100%;
 
 flex: 1;
 
@@ -369,17 +394,21 @@ background-color: rgba(255,255,255,0.9);
 box-shadow: 0px 0px 1px 0px rgba(60,58,64,0.1);
 }
 .bk-home{
-background-image: url('home.jpg');
+background-image: url('bun-venit.jpg');
 background-repeat: no-repeat;
-background-size: auto;
+background-size: 100% auto;
 /* background-color: rgba(16, 20, 40,1); */
 background-color: rgba(56, 60, 80,0.6) !important;
-background-position: 0% 0%;
+background-position: 50% 50%;
 background-blend-mode: overlay;
 }
 @media screen and (max-width: 900px){
+.articles > .mains{
+order: 2;
+}
 .bk-home{
-background-size: 100% auto;    
+height: 200px;
+order: 1 !important;
 }
 }
 /* second */
@@ -421,7 +450,7 @@ Transcom
 <div class="FS-14">
 Romania
 </div>
-        
+
 <div class="FS-17">
 Sibiu
 </div>
@@ -459,11 +488,11 @@ EN
 <article class="hero">
 <main class="FS-120">
 SILUET
-</main> 
+</main>
 
 <main class="FS-16">
 PRODUCTIE TRICOTAJE INTEGRALE
-</main>        
+</main>
 </article>
 </div>
 
@@ -471,33 +500,35 @@ PRODUCTIE TRICOTAJE INTEGRALE
 <article class="articles">
 <main class="mains">
 <h5>
-FILOZOFIA TRICOTAJELOR
+LUMEA TRICOTAJELOR
 </h5>
 <h2>
 bine ai venit
 </h2>
 <p>
-A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+Suntem o companie din Sibiu Romania ce fabrica tricotaje integrale pentru firma dumneavoastra.
+De mai bine de 20 de ani compania noastra s-a dedicat in totalitate productiei de calitate,
+am ajuns sa fim respectati si solicitati de catre brand-uri prestigioase din intreaga lume.
+Faptul ca investim constant in noi tehnologii ne-a ajutat sa atingem un nivel tnalt de
+ eficienta, reusind sa livram un raport calitate/pret foarte bun.
 </p>
 <h3>
-RESERVATIONS
+&nbsp;
+CONTINUA SA CITESTI
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
+	 xml:space="preserve">
+<path d="M87.816,49.57c-0.356-0.619-1.018-1-1.731-1h-10.12V2c0-1.104-0.896-2-2-2H21.633c-0.646,0-1.252,0.312-1.627,0.836
+		  L4.555,22.438c-0.436,0.609-0.494,1.411-0.152,2.078c0.344,0.666,1.029,1.085,1.779,1.085h44.181v22.97H40.24
+			 c-0.715,0-1.375,0.381-1.732,1c-0.355,0.619-0.355,1.381,0,2l22.924,39.695c0.356,0.619,1.018,1,1.731,1
+		  c0.715,0,1.375-0.381,1.732-1l22.92-39.695C88.174,50.951,88.174,50.189,87.816,49.57z" fill="#dfa671"/>
+</svg>
+&nbsp;
 </h3>
 </main>
 
 <main class="mains bk bk-home">
 <!-- HIDDEN -->
-<h5>
-A CULINARY PHILOSOPHY
-</h5>
-<h2>
-welcome
-</h2>
-<p>
-A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
-</p>
-<h3>
-RESERVATIONS
-</h3>
 <!-- =HIDDEN= -->
 </main>
 </article>
@@ -512,35 +543,38 @@ POVESTEA NOASTRA
 </article>
 
 <article class="articles">
-<main class="mains bk bk-home">
+<main class="mains bk bk-home" style="background-image: url('inceputuri.jpg');">
 <!-- HIDDEN -->
-<h5>
-A CULINARY PHILOSOPHY
-</h5>
-<h2>
-welcome
-</h2>
-<p>
-A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
-</p>
-<h3>
-RESERVATIONS
-</h3>
 <!-- =HIDDEN= -->
 </main>
 
 <main class="mains">
 <h5>
-A CULINARY PHILOSOPHY
+O CRESTERE STABILA SI SIGURA
 </h5>
 <h2>
-welcome
+INCEPUTURI
 </h2>
 <p>
-A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
+Activitatea de productie a inceput in 1996, prin realizarea de confectii
+imbracaminte pentru export - in sistem lohn prin firme de intermediere,
+intr-un spatiu de productie inchiriat, cu 10 masini de cusut care aveau
+un grad de uzura destul de ridicat si cu un numar de 15 angajati. Preocuparea
+permanenta pentru calitate si livrarea la timp a produselor au fost atuurile obtinerii
+a noi contracte externe directe.
 </p>
 <h3>
-RESERVATIONS
+&nbsp;
+CONTINUA SA CITESTI
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
+  	 xml:space="preserve">
+<path d="M87.816,49.57c-0.356-0.619-1.018-1-1.731-1h-10.12V2c0-1.104-0.896-2-2-2H21.633c-0.646,0-1.252,0.312-1.627,0.836
+  		  L4.555,22.438c-0.436,0.609-0.494,1.411-0.152,2.078c0.344,0.666,1.029,1.085,1.779,1.085h44.181v22.97H40.24
+  			 c-0.715,0-1.375,0.381-1.732,1c-0.355,0.619-0.355,1.381,0,2l22.924,39.695c0.356,0.619,1.018,1,1.731,1
+  		  c0.715,0,1.375-0.381,1.732-1l22.92-39.695C88.174,50.951,88.174,50.189,87.816,49.57z" fill="#dfa671"/>
+</svg>
+&nbsp;
 </h3>
 </main>
 </article>
@@ -557,33 +591,31 @@ PRODUCTIA
 <article class="articles">
 <main class="mains">
 <h5>
-A CULINARY PHILOSOPHY
+TEHNOLOGIE SI APTITUDINI MESTESUGARESTI
 </h5>
 <h2>
-welcome
+CALITATE
 </h2>
 <p>
 A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
 </p>
 <h3>
-RESERVATIONS
+&nbsp;
+CONTINUA SA CITESTI
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
+  	 xml:space="preserve">
+<path d="M87.816,49.57c-0.356-0.619-1.018-1-1.731-1h-10.12V2c0-1.104-0.896-2-2-2H21.633c-0.646,0-1.252,0.312-1.627,0.836
+  		  L4.555,22.438c-0.436,0.609-0.494,1.411-0.152,2.078c0.344,0.666,1.029,1.085,1.779,1.085h44.181v22.97H40.24
+  			 c-0.715,0-1.375,0.381-1.732,1c-0.355,0.619-0.355,1.381,0,2l22.924,39.695c0.356,0.619,1.018,1,1.731,1
+  		  c0.715,0,1.375-0.381,1.732-1l22.92-39.695C88.174,50.951,88.174,50.189,87.816,49.57z" fill="#dfa671"/>
+</svg>
+&nbsp;
 </h3>
 </main>
 
 <main class="mains bk bk-home">
 <!-- HIDDEN -->
-<h5>
-A CULINARY PHILOSOPHY
-</h5>
-<h2>
-welcome
-</h2>
-<p>
-A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
-</p>
-<h3>
-RESERVATIONS
-</h3>
 <!-- =HIDDEN= -->
 </main>
 </article>
@@ -596,25 +628,13 @@ trebuie sa ne
 CONTACTEZI
 </h1>
 </article>
-        
+
 <article class="articles">
 <main class="mains bk bk-home">
 <!-- HIDDEN -->
-<h5>
-A CULINARY PHILOSOPHY
-</h5>
-<h2>
-welcome
-</h2>
-<p>
-A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
-</p>
-<h3>
-RESERVATIONS
-</h3>
 <!-- =HIDDEN= -->
 </main>
-                        
+
 <main class="mains">
 <h5>
 A CULINARY PHILOSOPHY
@@ -626,7 +646,17 @@ welcome
 A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
 </p>
 <h3>
-RESERVATIONS
+&nbsp;
+CONTINUA SA CITESTI
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
+  	 xml:space="preserve">
+<path d="M87.816,49.57c-0.356-0.619-1.018-1-1.731-1h-10.12V2c0-1.104-0.896-2-2-2H21.633c-0.646,0-1.252,0.312-1.627,0.836
+  		  L4.555,22.438c-0.436,0.609-0.494,1.411-0.152,2.078c0.344,0.666,1.029,1.085,1.779,1.085h44.181v22.97H40.24
+  			 c-0.715,0-1.375,0.381-1.732,1c-0.355,0.619-0.355,1.381,0,2l22.924,39.695c0.356,0.619,1.018,1,1.731,1
+  		  c0.715,0,1.375-0.381,1.732-1l22.92-39.695C88.174,50.951,88.174,50.189,87.816,49.57z" fill="#dfa671"/>
+</svg>
+&nbsp;
 </h3>
 </main>
 </article>
