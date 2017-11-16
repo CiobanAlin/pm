@@ -153,7 +153,7 @@ text-transform: uppercase;
 }
 @media screen and (max-width: 500px){
 h1{
-font-size: 17px;
+font-size: 32px;//17
 }
 }
 h2{
@@ -175,6 +175,8 @@ font-size: 16px;
 }
 }
 h3{
+display: -webkit-box;
+
 text-align: center;
 margin: 40px;
 margin-top: 20px;
@@ -240,6 +242,11 @@ text-align: center;
 color: rgba(56, 60, 80, 0.9);
 font-family: p;
 }
+@media screen and (max-width: 500px) {
+p{
+margin: 20px;
+}
+}
 span{
 margin: 0 40px;
 text-align: center;
@@ -254,7 +261,7 @@ font-family: span;
 }
 @media screen and (max-width: 500px){
 span{
-font-size: 16px;
+font-size: 22px;//16
 }
 }
 .header-replace{
@@ -367,7 +374,7 @@ font-family: hero;
 }
 @media screen and (max-width: 500px) {
 .hero{
-padding-bottom: 45%;	
+padding-bottom: 45%;
 }
 }
 .hero .FS-120{
@@ -397,7 +404,10 @@ overflow: hidden;
 padding: 40px 20px;
 box-sizing: border-box;
 background-color: rgba(238, 241, 242, 1);
-box-shadow: 0px 0px 0px 1px rgba(60,58,64,0.1);
+/*box-shadow: 0px 0px 0px 1px rgba(60,58,64,0.1);*/
+box-shadow: inset 0 11px 8px -10px rgba(0,0,0,0.60),inset 0 -11px 8px -10px rgba(0,0,0,0.60);
+/*inset 0px 11px 8px -10px #CCC,
+  inset 0px -11px 8px -10px #CCC; */
 }
 @media screen and (max-width: 900px){
 .articles{
@@ -413,6 +423,8 @@ background-image: url('knitwear.jpg');
 background-position: 0% 80%;
 background-blend-mode: overlay;
 background-attachment: fixed;
+
+box-shadow: inset 0 11px 8px -10px rgba(0,0,0,0.0),inset 0 -11px 8px -10px rgba(0,0,0,0.0);
 
 min-height: 620px;
 }
@@ -435,7 +447,8 @@ margin: 20px;
 box-sizing: border-box;
 
 background-color: rgba(255,255,255,0.9);
-box-shadow: 0px 0px 1px 0px rgba(60,58,64,0.1);
+/*box-shadow: 0px 0px 1px 0px rgba(60,58,64,0.1);*/
+box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
 }
 .bk-home{
 background-image: url('bun-venit.jpg');
@@ -479,6 +492,9 @@ flex-flow: column;
 }
 
 /* contactNrMailFixed */
+.contactNrMailFixed{
+box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
+}
 .contactNrMailFixed,
 .set{
 top: auto;
@@ -522,6 +538,7 @@ display: flex !important;
 /* last */
 .header-scroll{
 background-color: rgba(235, 235, 235, 0.98);
+box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
 }
 .header-scroll *{
 color: rgba(56, 60, 80, 0.98) !important;
@@ -567,6 +584,12 @@ font-size: 0.81rem;
 font-size: 0.62rem;
 }
 }
+@media screen and (max-width:500px) {
+.D-N-500{
+display: none;
+}
+}
+
 </style>
 </head>
 <body>
@@ -720,7 +743,7 @@ Faptul ca investim constant in noi tehnologii ne-a ajutat sa atingem un nivel tn
  eficienta, reusind sa livram un raport calitate/pret foarte bun.
 </p>
 <h3>
-&nbsp;
+<div class="D-N-500">&nbsp;</div>
 CONTINUA SA CITESTI
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
@@ -771,7 +794,7 @@ permanenta pentru calitate si livrarea la timp a produselor au fost atuurile obt
 a noi contracte externe directe.
 </p>
 <h3>
-&nbsp;
+<div class="D-N-500">&nbsp;</div>
 CONTINUA SA CITESTI
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
@@ -807,7 +830,7 @@ CALITATE
 A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
 </p>
 <h3>
-&nbsp;
+<div class="D-N-500">&nbsp;</div>
 CONTINUA SA CITESTI
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
@@ -853,7 +876,7 @@ welcome
 A place of enjoyment and relaxation at one of the most enchanting places of the city, in the middle of the central city park. Enjoy modern Italian cuisine at the highest level. The quality lies in the composition of best products.
 </p>
 <h3>
-&nbsp;
+<div class="D-N-500">&nbsp;</div>
 CONTINUA SA CITESTI
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
