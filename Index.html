@@ -492,7 +492,7 @@ flex-flow: column;
 }
 
 /* contactNrMailFixed */
-.contactNrMailFixed{
+.set-scroll .contactNrMailFixed{
 box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
 }
 .contactNrMailFixed,
@@ -550,10 +550,10 @@ box-shadow: inset -2px 0px 0px 0px rgba(56, 60, 80, 0.98) !important;
 text-shadow: 0 0 10px rgba(56, 60, 80, 1) !important;
 }
 /*.header-scroll .menu-pc > a,*/
-.header-scroll .test{
+.header-scroll .active-tab{
 	position: relative;
 }
-.header-scroll .test::after{
+.header-scroll .active-tab::after{
 border: solid 1px rgba(56, 60, 80, 0.98);
 content: '';
 position: absolute;
@@ -630,7 +630,7 @@ SRL
 </main>
 
 <main class="menu-pc xactive">
-<a href="#" class="test">
+<a href="#">
 DESPRE
 </a>
 
@@ -732,7 +732,7 @@ office@siluetsib.ro
 <h5>
 LUMEA TRICOTAJELOR
 </h5>
-<h2>
+<h2 class="scroll-tab">
 bine ai venit
 </h2>
 <p>
@@ -782,7 +782,7 @@ POVESTEA NOASTRA
 <h5>
 O CRESTERE STABILA SI SIGURA
 </h5>
-<h2>
+<h2 class="scroll-tab">
 INCEPUTURI
 </h2>
 <p>
@@ -823,7 +823,7 @@ PRODUCTIA
 <h5>
 TEHNOLOGIE SI APTITUDINI MESTESUGARESTI
 </h5>
-<h2>
+<h2 class="scroll-tab">
 CALITATE
 </h2>
 <p>
@@ -869,7 +869,7 @@ CONTACTEZI
 <h5>
 A CULINARY PHILOSOPHY
 </h5>
-<h2>
+<h2 class="scroll-tab">
 welcome
 </h2>
 <p>
@@ -877,7 +877,7 @@ A place of enjoyment and relaxation at one of the most enchanting places of the 
 </p>
 <h3>
 <div class="D-N-500">&nbsp;</div>
-CONTINUA SA CITESTI
+E TIMPUL SA NE CONTACTEZI
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   	 width="12px" height="12px" viewBox="0 0 92.266 92.266"
   	 xml:space="preserve">
@@ -892,7 +892,7 @@ CONTINUA SA CITESTI
 </article>
 
 </div>
-<script>
+<script> //contact change
 $('.set').each(function(){
     (function($set){
         setInterval(function(){
@@ -904,7 +904,7 @@ $('.set').each(function(){
 });
 </script>
 
-<script>
+<script> // sticky
 var $document = $(document),
     $element = $('.set > a'),
     className = 'set-scroll',
@@ -924,5 +924,59 @@ $document.scroll(function() {
   }
 });
 </script>
+
+
+<script> //tabs
+
+
+
+$document.scroll(function tabs() {
+	var $documentTabs = $(document),
+			counterTabs0 = 0;
+			$elementTabs0 = $('.menu-pc > a').eq(counterTabs0),
+	    classNameTabs = 'active-tab',
+			xTabs0 = $('.scroll-tab').eq(counterTabs0).offset().top,
+
+			counterTabs1 = 1,
+			$elementTabs1 = $('.menu-pc > a').eq(counterTabs1),
+			xTabs1 = $('.scroll-tab').eq(counterTabs1).offset().top,
+
+			counterTabs2 = 2,
+			$elementTabs2 = $('.menu-pc > a').eq(counterTabs2),
+			xTabs2 = $('.scroll-tab').eq(counterTabs2).offset().top,
+
+			counterTabs3 = 3,
+			$elementTabs3 = $('.menu-pc > a').eq(counterTabs3),
+			xTabs3 = $('.scroll-tab').eq(counterTabs3).offset().top;
+
+  if ($document.scrollTop() >= xTabs0 && $document.scrollTop() <= xTabs1) {
+    // user scrolled x pixels or more;
+    // do stuff
+    $elementTabs0.addClass(classNameTabs);
+  } else {
+		$elementTabs0.removeClass(classNameTabs);
+  }
+
+	//1
+	if ($document.scrollTop() >= xTabs1 && $document.scrollTop() <= xTabs2) {
+    // user scrolled x pixels or more;
+    // do stuff
+    $elementTabs1.addClass(classNameTabs);
+  } else {
+		$elementTabs1.removeClass(classNameTabs);
+  }
+
+	//2
+	if ($document.scrollTop() >= xTabs2 && $document.scrollTop() <= xTabs3) {
+		// user scrolled x pixels or more;
+		// do stuff
+		$elementTabs2.addClass(classNameTabs);
+	} else {
+		$elementTabs2.removeClass(classNameTabs);
+	}
+});
+
+</script>
+
 </body>
 </html>
