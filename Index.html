@@ -32,32 +32,43 @@ div:last-child{
 /*style*/
 body{
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Neuton', serif;
+  font-weight: 400;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  letter-spacing: 0.1em;
   color: rgba(249, 249, 249,0.9);
-/*     overflow: hidden; */
+    overflow: hidden;
   background-image: url("https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754");
   background-repeat: no-repeat;
-  background-size: cover 150%;
+  background-size: 150% cover;
   background-position: 50% 50%;
-/*   min-height: 100vh; */
+height: 100%;
+  width: 100%;
   background-attachment: fixed;
+  position: relative;
+}
+article{
+    position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
 }
 section{
   background-color: rgba(0,0,0,.75);
   padding: 10px;
   width: 100%;
-  min-height: 100%;
-  position: absolute;
   box-sizing: border-box;
 }
 div{
  margin: 10px;
 }
 h1{
+  font-family: 'Lato', sans-serif;
   font-size: 35px;
   margin: 7px;
 }
 h2{
+  font-family: 'Lato', sans-serif;
   font-size: 30px;
   margin: 6px;
 }
@@ -100,11 +111,21 @@ button:hover{
 .selected{
   font-weight: bold;
   border: transparent solid 2px;
+  box-shadow: inset -2px 0px 0px 0px rgba(235,235,235,0.9);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  margin-right: 0;
+}
+.not{
+  border: transparent solid 2px;
+  color: rgba(205,205,205,0.9);
+  margin-left: 0;
+  padding-left: calc(1.44em - 8px);
 }
 </style>
 </head>
 <body>
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:900|Neuton:200&amp;subset=latin-ext" rel="stylesheet">
+<article>
 <section>
   <div>
     <button class="selected">Ro</button>
@@ -112,8 +133,8 @@ button:hover{
   </div>
   <div>
     <h1>SO ALENAX</h1>
-    <h3>Fotografie // Dezvoltare web</h3>
-    <h4>Evolutie // Afaceri</h4>
+    <h3>Fotografie&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dezvoltare web</h3>
+    <h4>Evolutie&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Afaceri</h4>
   </div>
   <div>
     <h2>Proiecte</h2>
@@ -144,5 +165,6 @@ button:hover{
         </a>
       </div>
 </section>
+  </article>
 </body>
 </html>
