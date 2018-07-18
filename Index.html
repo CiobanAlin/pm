@@ -115,10 +115,12 @@ button:hover{
 .selected{
   font-weight: bold;
   border: transparent solid 2px;
-  box-shadow: inset -2px 0px 0px 0px rgba(235,235,235,0.9);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   margin-right: 0;
 }
+.bar{
+    box-shadow: inset -2px 0px 0px 0px rgba(235,235,235,0.9);
+  }
 .not{
   border: transparent solid 2px;
   color: rgba(205,205,205,0.9);
@@ -134,10 +136,10 @@ button:hover{
 <section>
   <div>
         <a href="http://me.woance.com/">
-          <button class="not">Ro</button>
+          <button class="selected bar">Ro</button>
         </a>
         <a href="http://me.woance.com/en">
-          <button class="selected">En</button>
+          <button class="not">En</button>
         </a>
   </div>
   <div>
