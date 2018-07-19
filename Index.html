@@ -17,168 +17,223 @@
 <!-- <script src="./Index_files/jquery-3.2.1.min.js.download"></script> -->
 
 <style>
-section,
-div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-}
-div:first-child,
-div:last-child{
-  flex-flow: row;
-  flex-wrap: wrap;
-}
-/*style*/
-body{
-  margin: 0;
-  font-family: 'Neuton', serif;
-  font-weight: 400;
-  text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
-  letter-spacing: 0.1em;
-  color: rgba(249, 249, 249,0.9);
-    overflow: hidden;
-  background-image: url("https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754");
-  background-repeat: no-repeat;
-  background-size: 150% cover;
-  background-position: 50% 50%;
-height: 100%;
-  width: 100%;
-  background-attachment: fixed;
-  position: relative;
-  text-align: center;
-}
-article{
-    position: fixed;
-  overflow-y: auto;
-  width: 100%;
-  height: 100%;
-}
-section{
-  background-color: rgba(0,0,0,.75);
-  padding: 10px;
-  width: 100%;
-  min-height: 100%;
-  box-sizing: border-box;
-}
-div{
- margin: 10px;
-}
-h1{
-  font-family: 'Lato', sans-serif;
-  font-size: 35px;
-  margin: 7px;
-}
-h2{
-  font-family: 'Lato', sans-serif;
-  font-size: 30px;
-  margin: 6px;
-}
-h3{
-  font-size: 25px;
-  font-weight: normal;
-  margin: 5px;
-}
-h4{
-  font-size: 20px;
-  font-weight: normal;
-  margin: 4px;
-}
-button{
-  background: transparent;
-  border: 2px solid rgba(249, 249, 249,0.9);
-  transition: color 170ms ease-in-out, border-color 170ms ease-in-out;
-  letter-spacing: .2em;
-  font-weight: 500;
-  cursor: pointer;
-  font-size: 14px;
-    text-transform: uppercase;
-  line-height: 1em;
-  padding-top: 1em;
-    padding-right: 1.44em;
-    padding-right: calc(1.44em - .2em);
-    padding-bottom: 1em;
-    padding-left: 1.44em;
-transition-delay: 0s, 0s;
-transition-duration: 0.17s, 0.17s;
-transition-property: color, border-color;
-transition-timing-function: ease-in-out, ease-in-out;
-  color: rgba(249, 249, 249,0.9);
-  margin: 7px;
-      box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
-}
-button:hover{
-  border: transparent solid 2px;
-  font-weight: bold;
-      box-shadow: 0 1px 5px 0 rgba(0,0,0,0), 0 2px 2px 0 rgba(0,0,0,0), 0 3px 1px -2px rgba(0,0,0,0);
-}
-    .selected{
-  font-weight: bold;
-  border: transparent solid 2px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-}
-.bar{
-    box-shadow: inset -2px 0px 0px 0px rgba(235,235,235,0.9);
-        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0);
-    margin-right: 0;
-  }
-  .bar-space{
-   padding-left: calc(1.44em - 8px); 
-          box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0);
-          margin-left: 0;
-  }
+    section,
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+    }
+
+    .first,
+    .last {
+      flex-flow: row;
+      flex-wrap: wrap;
+    }
+
+    /*style*/
+
+    body {
+      margin: 0;
+      font-family: 'Neuton', serif;
+      font-weight: 400;
+      text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+      letter-spacing: 0.1em;
+      color: rgba(249, 249, 249, 0.9);
+      overflow: hidden;
+      background-image: url("https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754");
+      background-repeat: no-repeat;
+      background-size: 150% cover;
+      background-position: 50% 50%;
+      height: 100%;
+      width: 100%;
+      background-attachment: fixed;
+      position: relative;
+      text-align: center;
+    }
+
+    article {
+      position: fixed;
+      overflow-y: auto;
+      width: 100%;
+      height: 100%;
+    }
+
+    section {
+      background-color: rgba(0, 0, 0, .75);
+      padding: 10px;
+      width: 100%;
+      min-height: 100%;
+      box-sizing: border-box;
+    }
+
+    div {
+      margin: 10px;
+    }
+
+    h1 {
+      font-family: 'Lato', sans-serif;
+      font-size: 35px;
+      margin: 7px;
+    }
+
+    h2 {
+      font-family: 'Lato', sans-serif;
+      font-size: 30px;
+      margin: 6px;
+    }
+
+    h3 {
+      font-size: 25px;
+      font-weight: normal;
+      margin: 5px;
+    }
+
+    h4 {
+      font-size: 20px;
+      font-weight: normal;
+      margin: 4px;
+    }
+
+    h5 {
+      margin-bottom: 0;
+    }
+
+    button {
+      background: transparent;
+      border: 2px solid rgba(249, 249, 249, 0.9);
+      transition: color 170ms ease-in-out, border-color 170ms ease-in-out;
+      letter-spacing: .2em;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 14px;
+      text-transform: uppercase;
+      line-height: 1em;
+      padding-top: 1em;
+      padding-right: 1.44em;
+      padding-right: calc(1.44em - .2em);
+      padding-bottom: 1em;
+      padding-left: 1.44em;
+      transition-delay: 0s, 0s;
+      transition-duration: 0.17s, 0.17s;
+      transition-property: color, border-color;
+      transition-timing-function: ease-in-out, ease-in-out;
+      color: rgba(249, 249, 249, 0.9);
+      margin: 10px;
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+    }
+
+    button:hover {
+      border: transparent solid 2px;
+      font-weight: bold;
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0);
+    }
+
+    div:last-child button {
+      border-top: transparent 2px;
+      border-right: 2px transparent;
+      border-left: 2px transparent;
+      font-weight: bold;
+    }
+
+    .selected {
+      font-weight: bold;
+      border: transparent solid 2px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+
+    .bar {
+      box-shadow: inset -2px 0px 0px 0px rgba(235, 235, 235, 0.9);
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0);
+      margin-right: 0;
+    }
+
+    .bar-space {
+      padding-left: calc(1.44em - 8px);
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0);
+      margin-left: 0;
+    }
+
     .not {
       border: transparent solid 2px;
       color: rgba(205, 205, 205, 0.9);
     }
-</style>
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    .w-415 {
+      max-width: 415px;
+    }
+
+    /* .button-special {
+      border-bottom: 2px solid rgba(249, 249, 249, 0.9);
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+    } */
+  </style>
 </head>
-<body>
-<link href="https://fonts.googleapis.com/css?family=Lato:900|Neuton:200&amp;subset=latin-ext" rel="stylesheet">
-<article>
-<section>
-  <div>
+  <body>
+  <link href="https://fonts.googleapis.com/css?family=Lato:900|Neuton:200&amp;subset=latin-ext" rel="stylesheet">
+  <article>
+    <section>
+      <div class="first">
         <a href="http://me.woance.com/">
           <button class="selected bar">Ro</button>
         </a>
         <a href="http://me.woance.com/en">
           <button class="not bar-space">En</button>
         </a>
-  </div>
-  <div>
-    <h1>SO ALENAX</h1>
-    <h3>Fotografie&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dezvoltare web</h3>
-    <h4>Evolutie&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Afaceri</h4>
-  </div>
-  <div>
-    <h2>Proiecte</h2>
-    <a href="https://www.facebook.com/so.alenax">
-    <button>Portrait Main</button>
-    </a>
-    <a href="https://www.facebook.com/so.alenax">
-    <button>Woance.. in constructie</button>
-    </a>
-  </div>
-  <div>
-    <h2>0747332638</h2>
-    <h3>soalenaxlyx@yahoo.com</h3>
-  </div>
-    <div>
-    <h2>Suceava</h2>
-    <h3>Romania < Europa</h3>
-  </div>
+      </div>
       <div>
-        <a href="https://www.facebook.com/so.alenax/">
-        <button>Facebook</button>
+        <h1>SO ALENAX</h1>
+        <h3>Fotografie&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dezvoltare web</h3>
+        <h4>Evolutie&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Afaceri</h4>
+      </div>
+      <div>
+        <h2>Misiune</h2>
+        <h3 class="w-415">Contribuire la dezvoltarea artei, ingineriei si a nevoilor umane</h3>
+      </div>
+      <div>
+        <h2>Proiecte</h2>
+        <a href="https://www.facebook.com/so.alenax" target="_blank">
+          <button>Portrait Main
+            <br>
+            <h5>Portofoliul de fotografie</h5>
+          </button>
         </a>
-        <a href="https://www.instagram.com/so.alenax/">
-        <button>Instagram</button>
-        </a>
-                <a href="https://www.linkedin.com/in/alin-florin-cioban-68b939142/">
-        <button>LinkedIn</button>
+        <a href="https://www.facebook.com/so.alenax" target="_blank">
+          <button>Woance.. in constructie</button>
         </a>
       </div>
-</section>
+      <div>
+        <a class="button-special" href="tel:0747332638" target="_blank">
+          <h2>0747332638</h2>
+        </a>
+        <a class="button-special" href="mailto:soalenaxlyx@yahoo.com" target="_blank">
+          <h3>soalenaxlyx@yahoo.com</h3>
+        </a>
+      </div>
+      <a class="button-special" href="https://goo.gl/maps/Zv9yFYr71CK2" target="_blank">
+        <div>
+          <h2>Suceava</h2>
+          <h3>Romania
+            < Europa</h3>
+        </div>
+      </a>
+      <div class="last">
+        <a href="https://www.facebook.com/so.alenax/" target="_blank">
+          <button>Facebook</button>
+        </a>
+        <a href="https://www.instagram.com/so.alenax/" target="_blank">
+          <button>Instagram</button>
+        </a>
+        <a href="https://www.linkedin.com/in/alin-florin-cioban-68b939142/" target="_blank">
+          <button>LinkedIn</button>
+        </a>
+      </div>
+    </section>
   </article>
 </body>
 </html>
