@@ -7,8 +7,7 @@
 
   <meta name="KeyWord" content="woance, so, alenax, so alenax, portrait, portrait main, photographer suceava, photo shoot, photo sessions, suceava">
 
-  <meta content="Photography / Web Development | Evolution / Business || 0747332638 || soalenaxlyx@yahoo.com || Suceava < Romania < Europa "
-    name="description">
+  <meta name="description" content="Photography / Web Development | Evolution / Business || 0747332638 || soalenaxlyx@yahoo.com || Suceava < Romania < Europe ">
 
   <meta name="google-site-verification" content="ivCcmr6DxE0Ths0yfYnSReLwMPJIVyHntmc0j6a-u9Y" />
   <!-- =SEO= -->
@@ -75,11 +74,14 @@
       margin: 10px;
     }
 
+    .first {
+      margin-bottom: 5px;
+    }
+
     h1 {
       font-family: 'Lato', sans-serif;
       font-size: 35px;
-      margin: 7px;
-      margin-bottom: 0;
+      margin: 0 7px;
     }
 
     h2 {
@@ -282,8 +284,108 @@
       display: none;
     }
 
-    article {
+    /* article {
       display: none;
+    } */
+
+    .enter {
+      border-top: 2px solid transparent;
+      border-right: 2px solid transparent;
+      border-left: 2px solid transparent;
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.0), 0 2px 2px 0 rgba(0, 0, 0, 0.0), 0 3px 1px -2px rgba(0, 0, 0, 0.0);
+      font-family: 'Lato', sans-serif;
+      letter-spacing: 0.15em;
+      font-size: 25px;
+      font-weight: normal;
+      padding: 7.5px 5px;
+      padding-left: calc(5px + 0.15em)
+    }
+
+    .close {
+      background: 0 0;
+      border: 0;
+      cursor: pointer;
+      /* height: 36px; */
+      outline: 0;
+      overflow: hidden;
+      position: fixed;
+      right: 15px;
+      top: 0;
+      z-index: 2;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-right: calc(1.44em - 1.0em);
+      padding-left: calc(1.44em - 0.8em);
+    }
+
+    .close::before {
+      color: #fff;
+      content: '\00D7';
+      display: block;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 36px;
+      padding: 0;
+      margin: 0;
+      text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6);
+    }
+
+    .dn {
+      display: none;
+    }
+
+    .menu {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      margin: 5px 0;
+    }
+
+    .menu h3 {
+      padding-top: 0px;
+      padding-right: 15px;
+      padding-bottom: 8px;
+      padding-left: 15px;
+      margin: 0;
+    }
+
+    .menu h4 {
+      font-family: 'Lato', sans-serif;
+    }
+
+    .menu button {
+      border: 2px solid transparent;
+    }
+
+    .menu .selected {
+      font-weight: 700;
+    }
+
+    .menu .tab-selected {
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+    }
+
+    .menu button:hover {
+      border: 2px solid black;
+    }
+
+    .menu .bar-left {
+      border: 1px solid transparent;
+      border-left: 1px solid black;
+    }
+
+    .menu .bar-center {
+      border: 1px solid transparent;
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+    }
+
+    .menu .bar-right {
+      border: 1px solid transparent;
+      border-right: 1px solid black;
     }
   </style>
   <script type="text/javascript">
@@ -391,10 +493,10 @@
     portraitmainlFeed.run();
     portraitmainlallFeed.run();
   </script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:900|Neuton:200,700&amp;subset=latin-ext" rel="stylesheet">
 </head>
 
 <body>
-  <link href="https://fonts.googleapis.com/css?family=Lato:900|Neuton:200&amp;subset=latin-ext" rel="stylesheet">
   <article>
     <section>
       <div class="first">
@@ -408,9 +510,37 @@
       <!-- <span> -->
       <div>
         <h1>Portrait Main</h1>
-        <a href="http://me.woance.com/en">
+        <!-- <a href="http://me.woance.com/en">
           <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by So Alenax</h3>
-        </a>
+        </a> -->
+        <h2>Overview</h2>
+        <div class="menu">
+          <h3 class="selected bar-right">PhotoShoot(56)</h3>
+          <h3 class="bar-center">ChristeningParty(1)</h3>
+          <h3 class="bar-left">Baby`sFirstHaircut(1)</h3>
+        </div>
+        <div class="menu">
+          <h3 class="bar-right">18thBirthday(1)</h3>
+          <h3 class="bar-center">CivilUnion(1)</h3>
+          <h3 class="bar-left">Wedding(1)</h3>
+        </div>
+        <div class="menu">
+          <h3>OtherParties(3)</h3>
+        </div>
+        <!-- <div class="menu">
+          <h3>Check also</h3>
+          <h2>:</h2>
+          <h2 class="bar-right">Macro</h2>
+          <h2 class="bar-left">Landscape</h2>
+        </div> -->
+        <div class="menu">
+          <button class="tab-selected">
+            <h4>Portfolio</h4>
+          </button>
+          <button>
+            <h4>Price</h4>
+          </button>
+        </div>
       </div>
       <!-- <div>
         <h2>Mission</h2>
@@ -433,12 +563,12 @@
       <div class="w-800">
         <h3>Portrait</h3>
         <div id="portraitmainp" class="feed"></div>
-        <h3>...</h3>
+        <button class="enter pallenter">...</button>
       </div>
       <div class="w-1000">
         <h3>Portrait L-Style</h3>
         <div id="portraitmainl" class="feed"></div>
-        <h3>...</h3>
+        <button class="enter lallenter">...</button>
       </div>
       <div>
         <a class="button-special" href="tel:0747332638" target="_blank">
@@ -465,12 +595,25 @@
       </div>
     </section>
   </article>
-  <div class="pall">
+  <div class="pall dn">
+    <button class="close pallexit"></button>
     <div id="portraitmainpall" class="feed"></div>
   </div>
   <div class="lall">
     <div id="portraitmainlall" class="feed"></div>
   </div>
+  <script>
+    //enter pall
+    document.querySelector('.pallenter').onclick = function () {
+      document.querySelector('.pall').classList.remove("dn");
+      document.querySelector('article').classList.add("dn");
+    };
+    //exit pall
+    document.querySelector('.pallexit').onclick = function () {
+      document.querySelector('.pall').classList.add("dn");
+      document.querySelector('article').classList.remove("dn");
+    };
+  </script>
 </body>
 
 </html>
