@@ -40,7 +40,7 @@
       font-family: 'Neuton', serif;
       font-weight: 400;
       text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
-      letter-spacing: 0.1em;
+      /* letter-spacing: 0.1em; */
       /* color: rgba(249, 249, 249, 0.9); */
       color: rgba(38, 38, 38, 0.9);
       overflow: hidden;
@@ -53,6 +53,20 @@
       background-attachment: fixed;
       position: relative;
       text-align: center;
+    }
+
+    html {
+      font-size: 100px;
+    }
+
+    html a {
+      font-size: 5px;
+    }
+
+    @media screen and (max-width:800px) {
+      html {
+        font-size: 75px;
+      }
     }
 
     article {
@@ -80,18 +94,20 @@
 
     h1 {
       font-family: 'Lato', sans-serif;
-      font-size: 35px;
+      font-size: 0.35rem;
+      letter-spacing: 0.1em;
       margin: 0 7px;
     }
 
     h2 {
       font-family: 'Lato', sans-serif;
-      font-size: 30px;
+      font-size: 0.30rem;
       margin: 6px;
     }
 
     h3 {
-      font-size: 25px;
+      font-size: 0.25rem;
+      letter-spacing: 0.1em;
       font-weight: normal;
       margin: 5px;
     }
@@ -101,13 +117,17 @@
     }
 
     h4 {
-      font-size: 20px;
+      font-size: 0.20rem;
+      letter-spacing: 0.1em;
       font-weight: normal;
       margin: 4px;
     }
 
     h5 {
-      margin-bottom: 0;
+      font-size: 0.15rem;
+      /* letter-spacing: 0.1em; */
+      margin: 0;
+      padding: 0;
     }
 
     button {
@@ -118,7 +138,7 @@
       letter-spacing: .2em;
       font-weight: 500;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 0.14rem;
       text-transform: uppercase;
       line-height: 1em;
       padding-top: 1em;
@@ -236,7 +256,7 @@
       max-width: 614px;
       padding-top: 125%;
       position: relative;
-      min-width: 200px;
+      min-width: 100px;
     }
 
     .parentl {
@@ -340,7 +360,7 @@
       justify-content: center;
       align-content: center;
       flex-wrap: wrap;
-      margin: 5px 0;
+      margin: 0;
     }
 
     .menu h3 {
@@ -348,7 +368,7 @@
       padding-right: 15px;
       padding-bottom: 8px;
       padding-left: 15px;
-      margin: 0;
+      margin: 5px 0;
     }
 
     .menu h4 {
@@ -386,6 +406,23 @@
     .menu .bar-right {
       border: 1px solid transparent;
       border-right: 1px solid black;
+    }
+
+    @media screen and (max-width:800px) {
+      .menu .bar-right {
+        border-left: 1px solid black;
+      }
+      .menu .bar-left {
+        border-right: 1px solid black;
+      }
+    }
+
+    .copyright {
+      border: 1px dashed black;
+    }
+
+    .tabs h4 {
+      font-size: 0.14rem;
     }
   </style>
   <script type="text/javascript">
@@ -533,7 +570,7 @@
           <h2 class="bar-right">Macro</h2>
           <h2 class="bar-left">Landscape</h2>
         </div> -->
-        <div class="menu">
+        <div class="menu tabs">
           <button class="tab-selected">
             <h4>Portfolio</h4>
           </button>
@@ -560,16 +597,230 @@
       </div> -->
 
       <!-- </span> -->
+      <!-- portfolio -->
       <div class="w-800">
         <h3>Portrait</h3>
         <div id="portraitmainp" class="feed"></div>
-        <button class="enter pallenter">...</button>
+        <button class="enter pallenter">.:.</button>
       </div>
       <div class="w-1000">
         <h3>Portrait L-Style</h3>
         <div id="portraitmainl" class="feed"></div>
-        <button class="enter lallenter">...</button>
+        <button class="enter lallenter">.:.</button>
       </div>
+      <!-- price ------------------------------------------------------------------------------------------------------------------------>
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        .img-comp-container {
+          position: relative;
+          width: 300px;
+          height: 200px;
+          /*should be the same height as the images*/
+        }
+
+        .img-comp-img {
+          position: absolute;
+          width: auto;
+          height: auto;
+          overflow: hidden;
+        }
+
+        .img-comp-img img {
+          display: block;
+          vertical-align: middle;
+        }
+
+        .img-comp-slider {
+          position: absolute;
+          z-index: 9;
+          cursor: ew-resize;
+          /*set the appearance of the slider:*/
+          width: 40px;
+          height: 40px;
+          background-color: #2196F3;
+          opacity: 0.7;
+          border-radius: 50%;
+        }
+      </style>
+      <script>
+        function initComparisons() {
+          var x, i;
+          /*find all elements with an "overlay" class:*/
+          x = document.getElementsByClassName("img-comp-overlay");
+          for (i = 0; i < x.length; i++) {
+            /*once for each "overlay" element:
+            pass the "overlay" element as a parameter when executing the compareImages function:*/
+            compareImages(x[i]);
+          }
+          function compareImages(img) {
+            var slider, img, clicked = 0, w, h;
+            /*get the width and height of the img element*/
+            w = img.offsetWidth;
+            h = img.offsetHeight;
+            /*set the width of the img element to 50%:*/
+            img.style.width = (w / 2) + "px";
+            /*create slider:*/
+            slider = document.createElement("DIV");
+            slider.setAttribute("class", "img-comp-slider");
+            /*insert slider*/
+            img.parentElement.insertBefore(slider, img);
+            /*position the slider in the middle:*/
+            slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+            slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+            /*execute a function when the mouse button is pressed:*/
+            slider.addEventListener("mousedown", slideReady);
+            /*and another function when the mouse button is released:*/
+            window.addEventListener("mouseup", slideFinish);
+            /*or touched (for touch screens:*/
+            slider.addEventListener("touchstart", slideReady);
+            /*and released (for touch screens:*/
+            window.addEventListener("touchstop", slideFinish);
+            function slideReady(e) {
+              /*prevent any other actions that may occur when moving over the image:*/
+              e.preventDefault();
+              /*the slider is now clicked and ready to move:*/
+              clicked = 1;
+              /*execute a function when the slider is moved:*/
+              window.addEventListener("mousemove", slideMove);
+              window.addEventListener("touchmove", slideMove);
+            }
+            function slideFinish() {
+              /*the slider is no longer clicked:*/
+              clicked = 0;
+            }
+            function slideMove(e) {
+              var pos;
+              /*if the slider is no longer clicked, exit this function:*/
+              if (clicked == 0) return false;
+              /*get the cursor's x position:*/
+              pos = getCursorPos(e)
+              /*prevent the slider from being positioned outside the image:*/
+              if (pos < 0) pos = 0;
+              if (pos > w) pos = w;
+              /*execute a function that will resize the overlay image according to the cursor:*/
+              slide(pos);
+            }
+            function getCursorPos(e) {
+              var a, x = 0;
+              e = e || window.event;
+              /*get the x positions of the image:*/
+              a = img.getBoundingClientRect();
+              /*calculate the cursor's x coordinate, relative to the image:*/
+              x = e.pageX - a.left;
+              /*consider any page scrolling:*/
+              x = x - window.pageXOffset;
+              return x;
+            }
+            function slide(x) {
+              /*resize the image:*/
+              img.style.width = x + "px";
+              /*position the slider:*/
+              slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+            }
+          }
+        }
+      </script>
+      <style>
+        .w-800,
+        .w-1000 {
+          display: none;
+        }
+      </style>
+      <div>
+        <h3>Silver</h3>
+        <h3>Gold</h3>
+        <h3>Bronze</h3>
+      </div>
+      <!-- silver -->
+      <div>
+        <h2>Silver | Standard</h2>
+        <h3>30&euro;</h3>
+        <div class="img-comp-container">
+          <div class="img-comp-img">
+            <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+              width="300" height="200">
+          </div>
+          <div class="img-comp-img img-comp-overlay">
+            <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+              width="300" height="200">
+          </div>
+        </div>
+        <h4>
+          60min on the field
+        </h4>
+        <h4>
+          Made all photos from Standard to Silver
+        </h4>
+        <h5>*Standard mean straight out of camera</h5>
+        <h5>*Silver mean
+          <u>accurate</u>:</h5>
+        <h5>-adjusted White Balance and Exposure</h5>
+        <h5>-details accentuation</h5>
+        <h5>-composition</h5>
+        <h5>-art style</h5>
+      </div>
+      <!-- gold -->
+      <div>
+        <h2>Gold | Standard</h2>
+        <h3>100&euro;</h3>
+        <div class="img-comp-container">
+          <div class="img-comp-img">
+            <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+              width="300" height="200">
+          </div>
+          <div class="img-comp-img img-comp-overlay">
+            <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+              width="300" height="200">
+          </div>
+        </div>
+        <h4>
+          90min on the field
+        </h4>
+        <h4>
+          Made all photos from Standard to Gold
+        </h4>
+        <h5>*Standard mean straight out of camera</h5>
+        <h5>*Silver mean
+          <u>accurate</u>:</h5>
+        <h5>--color boost</h5>
+        <h5>--image manipulation</h5>
+        <h5>-adjusted White Balance and Exposure</h5>
+        <h5>-details accentuation</h5>
+        <h5>-composition</h5>
+        <h5>-art style</h5>
+      </div>
+      <!-- bronze -->
+      <div>
+        <h2>Bronze | Standard</h2>
+        <h3>10&euro;</h3>
+        <div class="img-comp-container">
+          <div class="img-comp-img">
+            <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+              width="300" height="200">
+          </div>
+          <div class="img-comp-img img-comp-overlay">
+            <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+              width="300" height="200">
+          </div>
+        </div>
+        <h4>
+          30min on the field
+        </h4>
+        <h4>
+          Made all photos from Standard to Bronze
+        </h4>
+        <h5>*Standard mean straight out of camera</h5>
+        <h5>*Bronze mean
+          <u>approximative</u> adjusted White Balance and Exposure</h5>
+      </div>
+      <script>
+        /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+        initComparisons();
+      </script>
+      <!-- footer -->
       <div>
         <a class="button-special" href="tel:0747332638" target="_blank">
           <h2>0747332638</h2>
@@ -593,8 +844,13 @@
           <button>Instagram</button>
         </a>
       </div>
+      <a href="https://www.me.woance.com/so.alenax/" target="_blank">
+        <button class="copyright">
+          &lt;/&gt; With &#10084; by So Alenax</button>
+      </a>
     </section>
   </article>
+  <!-- pop-ups -->
   <div class="pall dn">
     <button class="close pallexit"></button>
     <div id="portraitmainpall" class="feed"></div>
@@ -602,6 +858,8 @@
   <div class="lall">
     <div id="portraitmainlall" class="feed"></div>
   </div>
+  <!-- /pop-ups -->
+
   <script>
     //enter pall
     document.querySelector('.pallenter').onclick = function () {
