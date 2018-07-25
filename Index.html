@@ -53,6 +53,7 @@
       background-attachment: fixed;
       position: relative;
       text-align: center;
+      color: rgba(38, 38, 38, 0.9);
     }
 
     html {
@@ -151,7 +152,6 @@
       transition-property: color, border-color;
       transition-timing-function: ease-in-out, ease-in-out;
       /* color: rgba(249, 249, 249, 0.9); */
-      color: rgba(38, 38, 38, 0.9);
       margin: 10px;
       box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
     }
@@ -186,8 +186,9 @@
     }
 
     .not {
-      border: transparent solid 2px;
-      color: rgba(205, 205, 205, 0.9);
+      /* border: transparent solid 2px; */
+      /* color: rgba(205, 205, 205, 0.9); */
+      color: rgba(38, 38, 38, 0.5);
     }
 
     a {
@@ -361,6 +362,7 @@
       align-content: center;
       flex-wrap: wrap;
       margin: 0;
+      color: rgba(38, 38, 38, 0.5);
     }
 
     .menu h3 {
@@ -377,22 +379,25 @@
 
     .menu button {
       border: 2px solid transparent;
+      box-shadow: inset 0 1px 5px 0 rgba(0, 0, 0, 0.0), inset 0 2px 2px 0 rgba(0, 0, 0, 0.0), inset 0 3px 1px -2px rgba(0, 0, 0, 0.0);
+      color: rgba(38, 38, 38, 0.5);
     }
 
     .menu .selected {
       font-weight: 700;
+      color: rgba(38, 38, 38, 0.9);
     }
 
     .menu .tab-selected {
-      border-top: 2px solid black;
-      border-bottom: 2px solid black;
+      color: rgba(38, 38, 38, 0.9);
+      border-bottom: 2px solid rgba(38, 38, 38, 0.9);
     }
 
     .menu button:hover {
       border: 2px solid black;
     }
 
-    .menu .bar-left {
+    /* .menu .bar-left {
       border: 1px solid transparent;
       border-left: 1px solid black;
     }
@@ -415,7 +420,7 @@
       .menu .bar-left {
         border-right: 1px solid black;
       }
-    }
+    } */
 
     .copyright {
       border: 1px dashed black;
@@ -457,6 +462,16 @@
 
     span {
       font-weight: 700;
+    }
+
+    .one {
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(38, 38, 38, 0.9);
+      width: 100%;
+    }
+
+    .one button {
+      color: rgba(255, 255, 255, 0.9);
     }
   </style>
   <script type="text/javascript">
@@ -585,6 +600,10 @@
           <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by So Alenax</h3>
         </a> -->
         <h2>Overview</h2>
+        <div>
+          <h5>*Service(events)</h5>
+          <h5>*Every service has it`s portofolio and it`s price</h5>
+        </div>
         <div class="menu">
           <h3 class="selected bar-right">PhotoShoot(56)</h3>
           <h3 class="bar-center">ChristeningParty(1)</h3>
@@ -605,10 +624,10 @@
           <h2 class="bar-left">Landscape</h2>
         </div> -->
         <div class="menu tabs">
-          <button class="tab-selected">
+          <button>
             <h4>Portfolio</h4>
           </button>
-          <button>
+          <button class="tab-selected">
             <h4>Price</h4>
           </button>
         </div>
@@ -769,112 +788,162 @@
         <h3>Gold</h3>
         <h3>Bronze</h3>
       </div> -->
-      <!-- silver -->
-      <main>
-        <div>
-          <h2>Silver | Standard</h2>
-          <h3>
-            <span>30&euro;</span>
-          </h3>
-          <div class="img-comp-container">
-            <div class="img-comp-img">
-              <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
-                width="300" height="200">
+      <div class="one">
+        <h5>*Choose between
+          <u>Bronze</u>,
+          <u>Silver</u> and
+          <u>Gold</u> to see more options</h5>
+        <main>
+          <!-- bronze -->
+          <div>
+            <h2>Bronze | Standard</h2>
+            <h3>
+              <span>10&euro;</span>
+            </h3>
+            <div class="img-comp-container">
+              <div class="img-comp-img">
+                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+                  width="300" height="200">
+              </div>
+              <div class="img-comp-img img-comp-overlay">
+                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+                  width="300" height="200">
+              </div>
             </div>
-            <div class="img-comp-img img-comp-overlay">
-              <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
-                width="300" height="200">
-            </div>
+            <h4>
+              <span>30min</span> on the field
+            </h4>
+            <h4>
+              Made all photos from Standard to Bronze
+            </h4>
+            <h5>*Standard mean straight out of camera</h5>
+            <h5>*Bronze mean
+              <u>approximative</u> adjusted White Balance and Exposure</h5>
           </div>
-          <h4>
-            <span>60min</span> on the field
-          </h4>
-          <h4>6 Images from Standard to Silver</h4>
-          <h4>- 3 choosen by you </h4>
-          <h4>- 3 choosen by me</h4>
-          <h4>
-            + Made rest of photos from Standard to Bronze
-          </h4>
-          <h5>*Standard mean straight out of camera</h5>
-          <h5>*Silver mean
-            <u>accurate</u>:</h5>
-          <h5>-adjusted White Balance and Exposure</h5>
-          <h5>-details accentuation</h5>
-          <h5>-composition ensure</h5>
-          <h5>-art style</h5>
-        </div>
-        <!-- gold -->
-        <div>
-          <h2>Gold | Standard</h2>
-          <h3>
-            <span>100&euro;</span>
-          </h3>
-          <div class="img-comp-container">
-            <div class="img-comp-img">
-              <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
-                width="300" height="200">
+          <!-- silver -->
+          <div>
+            <h2>Silver | Standard</h2>
+            <h3>
+              <span>30&euro;</span>
+            </h3>
+            <div class="img-comp-container">
+              <div class="img-comp-img">
+                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+                  width="300" height="200">
+              </div>
+              <div class="img-comp-img img-comp-overlay">
+                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+                  width="300" height="200">
+              </div>
             </div>
-            <div class="img-comp-img img-comp-overlay">
-              <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
-                width="300" height="200">
-            </div>
+            <h4>
+              <span>60min</span> on the field
+            </h4>
+            <h4>6 Images from Standard to Silver</h4>
+            <h4>- 3 choosen by you </h4>
+            <h4>- 3 choosen by me</h4>
+            <h4>
+              + Made rest of photos from Standard to Bronze
+            </h4>
+            <h5>*Standard mean straight out of camera</h5>
+            <h5>*Silver mean
+              <u>accurate</u>:</h5>
+            <h5>-adjusted White Balance and Exposure</h5>
+            <h5>-details accentuation</h5>
+            <h5>-composition ensure</h5>
+            <h5>-art style</h5>
           </div>
-          <h4>
-            <span>90min</span> on the field
-          </h4>
-          <h4>4 Images from Standard to Gold</h4>
-          <h4>- 2 choosen by you </h4>
-          <h4>- 2 choosen by me</h4>
-          <h4>And all from Silver</h4>
-          <!-- <h4>+6 Images from Standard to Silver</h4>
+          <!-- gold -->
+          <div>
+            <h2>Gold | Standard</h2>
+            <h3>
+              <span>100&euro;</span>
+            </h3>
+            <div class="img-comp-container">
+              <div class="img-comp-img">
+                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+                  width="300" height="200">
+              </div>
+              <div class="img-comp-img img-comp-overlay">
+                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+                  width="300" height="200">
+              </div>
+            </div>
+            <h4>
+              <span>90min</span> on the field
+            </h4>
+            <h4>4 Images from Standard to Gold</h4>
+            <h4>- 2 choosen by you </h4>
+            <h4>- 2 choosen by me</h4>
+            <h4>And all from Silver</h4>
+            <!-- <h4>+6 Images from Standard to Silver</h4>
           <h4>- 3 choosen by you </h4>
           <h4>- 3 choosen by me</h4>
           <h4>
             + Made rest of photos from Standard to Bronze
           </h4> -->
-          <h5>*Standard mean straight out of camera</h5>
-          <h5>*Gold mean
-            <u>accurate</u>:</h5>
-          <h5>All from Silver and</h5>
-          <!-- <h5>-adjusted White Balance and Exposure</h5>
+            <h5>*Standard mean straight out of camera</h5>
+            <h5>*Gold mean
+              <u>accurate</u>:</h5>
+            <h5>All from Silver and</h5>
+            <!-- <h5>-adjusted White Balance and Exposure</h5>
           <h5>-details accentuation</h5>
           <h5>-composition ensure</h5>
           <h5>-art style</h5> -->
-          <h5>--color boost</h5>
-          <h5>--image manipulation</h5>
-        </div>
-        <!-- bronze -->
-        <div>
-          <h2>Bronze | Standard</h2>
-          <h3>
-            <span>10&euro;</span>
-          </h3>
-          <div class="img-comp-container">
-            <div class="img-comp-img">
-              <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
-                width="300" height="200">
-            </div>
-            <div class="img-comp-img img-comp-overlay">
-              <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
-                width="300" height="200">
-            </div>
+            <h5>--color boost</h5>
+            <h5>--image manipulation</h5>
           </div>
-          <h4>
-            <span>30min</span> on the field
-          </h4>
-          <h4>
-            Made all photos from Standard to Bronze
-          </h4>
-          <h5>*Standard mean straight out of camera</h5>
-          <h5>*Bronze mean
-            <u>approximative</u> adjusted White Balance and Exposure</h5>
-        </div>
-      </main>
+        </main>
+      </div>
+      <div>Practice your modeling before shooting and you may receive a nice discount!!</div>
+      <div>
+        Price | Book
+      </div>
+      <div>
+        <div>Packet</div>
+        <div>Price</div>
+        <div>On the field</div>
+        <div>Model indications</div>
+        <div>White Balance Adjustment</div>approximative|accurate
+        <div>Exposure Adjustment</div>
+        <div>Details Accentuation</div>
+        <div>Composition Ensure</div>
+        <div>Art Style</div>
+        <div>Color Boost</div>
+        <div>Image Manipulation</div>
+        <div>Frame</div>
+        <div>Brand Color</div>x | Black | Gold
+        <div>Gold Images</div>
+        <div>Silver Images</div>
+        <div>Bronze Images</div>
+      </div>
+      <div>You can bring your toys too.</div>
+      <div>Inspire me and may will receive a nice discount!!</div>
+      <div>
+        <div>Blurred front obsects</div>
+        <div>Optionals on the field</div>
+        <div>Natural Light Diffuser / Natural No Shadows Under Eyes </div>
+        <div>Smoke (simple) </div>
+        <div>Smoke (colored) </div>
+        <div>Glass Frame </div>
+        <div>Sparkles </div>
+        <div>Decoration Lights </div>
+        <div>Natural colored dust </div>
+        <div>Natural Rainbow Effect </div>
+        <div>Confetti </div>
+        <div>Natural Rainbow Effect </div>
+        <div>Transparent Globe </div>
+        <div>Soap Bubbles </div>
+        <div>Object Levitation Effect </div>
+        <div>Moon Sphere </div>
+        <div>Candles</div>
+      </div>
       <script>
         /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
         initComparisons();
       </script>
       <!-- footer -->
+      <!-- <h5>*Click on any of them below for calling / email / see my location</h5> -->
       <div>
         <a class="button-special" href="tel:0747332638" target="_blank">
           <h2>0747332638</h2>
@@ -890,6 +959,7 @@
             < Europe</h3>
         </div>
       </a>
+
       <div class="last">
         <a href="https://www.facebook.com/so.alenax/" target="_blank">
           <button>Facebook</button>
@@ -902,6 +972,7 @@
         <button class="copyright">
           &lt;/&gt; With &#10084; by So Alenax</button>
       </a>
+
     </section>
   </article>
   <!-- pop-ups -->
