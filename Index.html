@@ -435,12 +435,22 @@
     .table-two {
       display: flex;
       flex-flow: row;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
       text-align: left;
       font-size: 0.20rem;
       /* border: 1px solid rgba(38, 38, 38, 0.3); */
       box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+      white-space: nowrap;
+    }
+
+    .table {
+      overflow-y: auto;
+      width: 100%;
+    }
+
+    .table-two {
+      /* min-width: 350px; */
     }
 
     .table>div>div>div,
@@ -510,10 +520,13 @@
     }
 
     .tables {
+      width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
       flex-flow: row;
+      flex-wrap: nowrap;
+      overflow-y: auto;
     }
 
     .tables>div {
@@ -646,7 +659,7 @@
           <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by So Alenax</h3>
         </a> -->
         <h2>Overview</h2>
-        <div>
+        <div class="one">
           <h5>*Service(events)</h5>
           <h5>*Every service has it`s portofolio and it`s price</h5>
         </div>
@@ -834,12 +847,14 @@
         <h3>Gold</h3>
         <h3>Bronze</h3>
       </div> -->
-      <div class="one">
-        <h5>*Choose between
-          <u>Bronze</u>,
-          <u>Silver</u> and
-          <u>Gold</u> to see extra options</h5>
-        <h5>***Contact me for personalized shooting and I will make a good offer***</h5>
+      <div>
+        <div class="one">
+          <h5>*Choose between
+            <u>Bronze</u>,
+            <u>Silver</u> and
+            <u>Gold</u> to see extra options</h5>
+          <h5>*Contact me for personalized shooting and I will make a good offer*</h5>
+        </div>
         <main>
           <!-- bronze -->
           <div>
@@ -900,8 +915,10 @@
           </div>
         </main>
       </div>
-      <h5>Practice your modeling before shooting and you
-        <u>may</u> receive a nice discount!!</h5>
+      <div class="one">
+        <h5>*Practice your modeling before shooting and you
+          <u>may</u> receive a nice discount!!</h5>
+      </div>
       <div>
         <h2>Current Price 0$</h2>
         <buttton>Book</buttton>
@@ -1143,8 +1160,9 @@
           </div>
         </div>
       </div>
-      <h2>You can bring your toys too.</h2>
-      <h3>Inspire me and may will receive a nice discount!!</h3>
+      <div class="one">
+        <h2>You can bring your toys too.</h2>
+        <h3>Inspire me and may will receive a nice discount!!</h3>
       </div>
       <script>
         /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
