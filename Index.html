@@ -219,24 +219,12 @@
       margin: 30px auto;
     }
 
-    .w-800 iframe,
-    .w-1000 iframe {
-      /* box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12); */
-    }
-
     .w-800 h3,
     .w-1000 h3 {
       margin-bottom: 20px;
       font-family: 'Lato', sans-serif;
       letter-spacing: 0.15em;
     }
-
-    /* span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-flow: wrap;
-    } */
 
     .feed {
       flex-flow: row;
@@ -284,12 +272,9 @@
       overflow-y: auto;
       width: 100%;
       padding-top: 60px;
-      /* padding-left: 20px;
-      padding-right: 20px; */
       padding-bottom: 60px;
       overflow-y: auto;
       width: 100%;
-      /* position: absolute; */
       display: block;
       top: 0;
       right: 0;
@@ -304,10 +289,6 @@
     .lall {
       display: none;
     }
-
-    /* article {
-      display: none;
-    } */
 
     .enter {
       border-top: 2px solid transparent;
@@ -326,7 +307,6 @@
       background: 0 0;
       border: 0;
       cursor: pointer;
-      /* height: 36px; */
       outline: 0;
       overflow: hidden;
       position: fixed;
@@ -397,31 +377,6 @@
       border: 2px solid black;
     }
 
-    /* .menu .bar-left {
-      border: 1px solid transparent;
-      border-left: 1px solid black;
-    }
-
-    .menu .bar-center {
-      border: 1px solid transparent;
-      border-right: 1px solid black;
-      border-left: 1px solid black;
-    }
-
-    .menu .bar-right {
-      border: 1px solid transparent;
-      border-right: 1px solid black;
-    }
-
-    @media screen and (max-width:800px) {
-      .menu .bar-right {
-        border-left: 1px solid black;
-      }
-      .menu .bar-left {
-        border-right: 1px solid black;
-      }
-    } */
-
     .copyright {
       border: 1px dashed black;
     }
@@ -472,6 +427,97 @@
 
     .one button {
       color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* w */
+
+    .table,
+    .table-two {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      font-size: 0.20rem;
+      /* border: 1px solid rgba(38, 38, 38, 0.3); */
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+    }
+
+    .table>div>div>div,
+    .table-two>div>div {
+      display: flex;
+      align-items: center;
+    }
+
+    .table>div>div>div>div,
+    .table-two>div>div>div {
+      padding: 0 2px;
+    }
+
+    .table>div>div>div>div:nth-child(1),
+    .table-two>div>div>div:nth-child(1) {
+      color: #BC2A14;
+      font-weight: 700;
+      font-size: 0.25rem;
+    }
+
+    .table>div:first-of-type>div:nth-child(2),
+    .table-two.op-packet>div:first-of-type>div:nth-child(1),
+    .table-two.op-packet>div:first-of-type>div:nth-child(2),
+    .table-two.op-packet>div:first-of-type>div:nth-child(3),
+    .table-two.op-packet>div:nth-child(3)>div:nth-child(1),
+    .table-two.op-packet>div:nth-child(3)>div:nth-child(2),
+    .table-two.op-packet>div:nth-child(3)>div:nth-child(3) {
+      font-size: 0.25rem;
+    }
+
+    .table>div>div>div>div:nth-child(2),
+    .table-two>div>div>div:nth-child(2) {
+      color: rgba(38, 38, 38, 0.5);
+      font-weight: 700;
+    }
+
+    .table>div>div>div>div:nth-child(3),
+    .table-two>div>div>div:nth-child(3) {
+      text-decoration: line-through;
+    }
+
+    .table>div:first-of-type,
+    .table>div>div:first-of-type,
+    .table-two>div:first-of-type {
+      font-weight: 700;
+      color: rgba(38, 38, 38, 0.9);
+    }
+
+    .table>div:first-of-type {
+      background: rgba(38, 38, 38, 0.3);
+    }
+
+    .table>div:nth-of-type(2n) {
+      background: rgba(38, 38, 38, 0.1);
+    }
+
+    .table>div>div,
+    .table-two>div>div {
+      border: 1px solid rgba(38, 38, 38, 0.3);
+      padding: 10px;
+    }
+
+    .table>div>div:last-of-type {
+      background: rgba(237, 237, 237, 1);
+      border: 1px solid transparent;
+      border-top: 1px solid rgba(38, 38, 38, 0.3);
+    }
+
+    .tables {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-flow: row;
+    }
+
+    .tables>div {
+      margin: 10px;
     }
   </style>
   <script type="text/javascript">
@@ -797,10 +843,7 @@
         <main>
           <!-- bronze -->
           <div>
-            <h2>Bronze | Standard</h2>
-            <h3>
-              <span>10&euro;</span>
-            </h3>
+
             <div class="img-comp-container">
               <div class="img-comp-img">
                 <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
@@ -811,22 +854,15 @@
                   width="300" height="200">
               </div>
             </div>
+            <h3>Bronze | Standard</h3>
             <h4>
-              <span>30min</span> on the field
+              <span>10&euro;</span>
             </h4>
-            <h4>
-              Made all photos from Standard to Bronze
-            </h4>
-            <h5>*Standard mean straight out of camera</h5>
-            <h5>*Bronze mean
-              <u>approximative</u> adjusted White Balance and Exposure</h5>
+            <button>Choose</button>
           </div>
           <!-- silver -->
           <div>
-            <h2>Silver | Standard</h2>
-            <h3>
-              <span>30&euro;</span>
-            </h3>
+
             <div class="img-comp-container">
               <div class="img-comp-img">
                 <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
@@ -837,29 +873,15 @@
                   width="300" height="200">
               </div>
             </div>
+            <h3>Silver | Standard</h3>
             <h4>
-              <span>60min</span> on the field
+              <span>30&euro;</span>
             </h4>
-            <h4>6 Images from Standard to Silver</h4>
-            <h4>- 3 choosen by you </h4>
-            <h4>- 3 choosen by me</h4>
-            <h4>
-              + Made rest of photos from Standard to Bronze
-            </h4>
-            <h5>*Standard mean straight out of camera</h5>
-            <h5>*Silver mean
-              <u>accurate</u>:</h5>
-            <h5>-adjusted White Balance and Exposure</h5>
-            <h5>-details accentuation</h5>
-            <h5>-composition ensure</h5>
-            <h5>-art style</h5>
+            <button>Choose</button>
           </div>
           <!-- gold -->
           <div>
-            <h2>Gold | Standard</h2>
-            <h3>
-              <span>100&euro;</span>
-            </h3>
+
             <div class="img-comp-container">
               <div class="img-comp-img">
                 <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
@@ -870,36 +892,19 @@
                   width="300" height="200">
               </div>
             </div>
+            <h3>Gold | Standard</h3>
             <h4>
-              <span>90min</span> on the field
+              <span>100&euro;</span>
             </h4>
-            <h4>4 Images from Standard to Gold</h4>
-            <h4>- 2 choosen by you </h4>
-            <h4>- 2 choosen by me</h4>
-            <h4>And all from Silver</h4>
-            <!-- <h4>+6 Images from Standard to Silver</h4>
-          <h4>- 3 choosen by you </h4>
-          <h4>- 3 choosen by me</h4>
-          <h4>
-            + Made rest of photos from Standard to Bronze
-          </h4> -->
-            <h5>*Standard mean straight out of camera</h5>
-            <h5>*Gold mean
-              <u>accurate</u>:</h5>
-            <h5>All from Silver and</h5>
-            <!-- <h5>-adjusted White Balance and Exposure</h5>
-          <h5>-details accentuation</h5>
-          <h5>-composition ensure</h5>
-          <h5>-art style</h5> -->
-            <h5>--color boost</h5>
-            <h5>--image manipulation</h5>
+            <button>Choose</button>
           </div>
         </main>
       </div>
-      <div>Practice your modeling before shooting and you
-        <u>may</u> receive a nice discount!!</div>
+      <h5>Practice your modeling before shooting and you
+        <u>may</u> receive a nice discount!!</h5>
       <div>
-        Price 0$ | Book
+        <h2>Current Price 0$</h2>
+        <buttton>Book</buttton>
       </div>
       <div class="table">
         <div>
@@ -919,10 +924,18 @@
           <div>Gold Images</div>
           <div>Silver Images</div>
           <div>Bronze Images</div>
+          <div></div>
         </div>
+        <!-- Bronze -->
         <div>
           <div>Bronze</div>
-          <div>10$ (-x%) -50$-</div>
+          <div>
+            <div>
+              <div>10$</div>
+              <div>(-80%)</div>
+              <div>50$</div>
+            </div>
+          </div>
           <div>30min</div>
           <div>Approximative</div>
           <div>Approximative</div>
@@ -937,10 +950,20 @@
           <div>-</div>
           <div>-</div>
           <div>All</div>
+          <div>
+            <button>Choose</button>
+          </div>
         </div>
+        <!-- Silver -->
         <div>
           <div>Silver</div>
-          <div>30$ (-x%) -120$-</div>
+          <div>
+            <div>
+              <div>30$</div>
+              <div>(-75%)</div>
+              <div>120$</div>
+            </div>
+          </div>
           <div>60min</div>
           <div>Accurate</div>
           <div>Accurate</div>
@@ -953,12 +976,22 @@
           <div>Yes</div>
           <div>Black</div>
           <div>-</div>
-          <div>3you / 3me</div>
+          <div>[6] 3you / 3me</div>
           <div>Rest of them</div>
+          <div>
+            <button>Choose</button>
+          </div>
         </div>
+        <!-- gold -->
         <div>
           <div>Gold</div>
-          <div>160$ (-x%) -300$-</div>
+          <div>
+            <div>
+              <div>160$</div>
+              <div>(-46%)</div>
+              <div>300$</div>
+            </div>
+          </div>
           <div>90min</div>
           <div>Accurate</div>
           <div>Accurate</div>
@@ -970,48 +1003,148 @@
           <div>Yes</div>
           <div>Yes</div>
           <div>Gold</div>
-          <div>2you/2me</div>
-          <div>3you / 3me</div>
+          <div>[4] 2you/2me</div>
+          <div>[6] 3you / 3me</div>
           <div>Rest of them</div>
+          <div>
+            <button>Choose</button>
+          </div>
         </div>
       </div>
-      <div>You can bring your toys too.</div>
-      <div>Inspire me and may will receive a nice discount!!</div>
-      <div>
-        <div>Collage</div> 20$
-        <div>1x Silver Image</div> kk 5$ (-x%) -20$-
-        <div>1x Gold Image</div> kk 40$ (-x%) -75$-
-        <div>RAW files </div> 100$
-        <div>Back-up photos</div> 100$
-        <div>Back-up RAW files</div> 300$
+
+
+      <div class="tables">
+        <div>
+          <h2>Optionals after Packet</h2>
+          <div class="table-two op-packet">
+            <div>
+              <div>Collage</div>
+              <div>1x Silver Image</div>
+              <div>1x Gold Image</div>
+              <div>RAW files </div>
+              <div>Back-up photos</div>
+              <div>Back-up RAW files</div>
+              <div>Photobooks</div>
+              <div>Stick</div>
+              <div>Rame</div>
+              <div>Canvas</div>
+              <div>Photo Tapet</div>
+            </div>
+            <div>
+              <div>
+                <div>20$</div>
+                <div>(-x%)</div>
+                <div>120$</div>
+              </div>
+              <div>
+                <div>5$</div>
+                <div>(-x%)</div>
+                <div>20$</div>
+              </div>
+              <div>
+                <div>40$</div>
+                <div>(-x%)</div>
+                <div>75$</div>
+              </div>
+              <div>100$</div>
+              <div>100$</div>
+              <div>300$</div>
+              <div>?$</div>
+              <div>?$</div>
+              <div>?$</div>
+              <div>?$</div>
+              <div>10$/m2</div>
+            </div>
+            <div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2>Optionals on the field</h2>
+          <div class="table-two">
+            <div>
+              <div>Natural Light Diffuser
+                <br> Natural No Shadows Under Eyes </div>
+              <div>Boke KING</div>
+              <div>Blurred front obsects</div>
+              <div>Macro Details</div>
+              <div>Smoke (simple) </div>
+              <div>Smoke (colored) </div>
+              <div>Glass Frame </div>
+              <div>Sparkles </div>
+              <div>Decoration Lights </div>
+              <div>Natural colored dust </div>
+              <div>Natural Rainbow Effect </div>
+              <div>Confetti </div>
+              <div>Natural Rainbow Effect </div>
+              <div>Transparent Globe </div>
+              <div>Soap Bubbles </div>
+              <div>Object Levitation Effect </div>
+              <div>Moon Sphere </div>
+              <div>Candles</div>
+            </div>
+            <div>
+              <div>
+                <br> x?
+                <br>
+              </div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+              <div>x?</div>
+            </div>
+            <div>
+              <div>
+                <br> check
+                <br>
+              </div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+              <div>check</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <div>Photobooks</div>
-        <div>Stick</div>
-        <div>Rame</div>
-        <div>Canvas</div>
-        <div>Photo Tapet</div> 10$/m2
-      </div>
-      <div>
-        <div>Optionals on the field</div>
-        <div>Boke KING</div>
-        <div>Blurred front obsects</div>
-        <div>Macro Details</div>
-        <div>Natural Light Diffuser / Natural No Shadows Under Eyes </div>
-        <div>Smoke (simple) </div>
-        <div>Smoke (colored) </div>
-        <div>Glass Frame </div>
-        <div>Sparkles </div>
-        <div>Decoration Lights </div>
-        <div>Natural colored dust </div>
-        <div>Natural Rainbow Effect </div>
-        <div>Confetti </div>
-        <div>Natural Rainbow Effect </div>
-        <div>Transparent Globe </div>
-        <div>Soap Bubbles </div>
-        <div>Object Levitation Effect </div>
-        <div>Moon Sphere </div>
-        <div>Candles</div>
+      <h2>You can bring your toys too.</h2>
+      <h3>Inspire me and may will receive a nice discount!!</h3>
       </div>
       <script>
         /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
