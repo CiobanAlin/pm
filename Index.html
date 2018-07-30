@@ -266,7 +266,7 @@
       box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
     }
 
-    .pall {
+    .overlay {
       background-color: rgba(0, 0, 0, .75);
       position: fixed;
       overflow-y: auto;
@@ -282,7 +282,7 @@
       left: 0;
     }
 
-    .pall .feed {
+    .overlay .feed {
       flex-wrap: wrap;
     }
 
@@ -331,9 +331,6 @@
       text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6);
     }
 
-    .dn {
-      display: none;
-    }
 
     .menu {
       display: flex;
@@ -533,6 +530,91 @@
       margin: 10px;
     }
   </style>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .img-comp-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      margin: auto;
+      /*should be the same height as the images*/
+    }
+
+    .img-comp-img {
+      position: absolute;
+      width: auto;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .img-comp-img img {
+      display: block;
+      vertical-align: middle;
+    }
+
+    .img-comp-slider {
+      position: absolute;
+      z-index: 9;
+      cursor: ew-resize;
+      /*set the appearance of the slider:*/
+      width: 40px;
+      height: 40px;
+      background-color: #2196F3;
+      opacity: 0.7;
+      border-radius: 50%;
+    }
+
+    .fixed-one {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(38, 38, 38, 0.9);
+      z-index: 9999;
+      color: rgba(249, 249, 249, 0.9);
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      flex-flow: row;
+      height: 50px;
+      font-size: 0.30rem;
+    }
+
+    .fixed-one a {
+      width: 30px;
+      margin-left: 65px;
+    }
+
+    .overlay {
+      color: white;
+    }
+
+    .overlay button {
+      color: white;
+      box-shadow: 0 1px 5px 0 rgba(255, 255, 255, 0.2), 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.12);
+    }
+
+    .overlay button:hover {
+      color: white;
+      box-shadow: 0 1px 5px 0 rgba(255, 255, 255, 0.0), 0 2px 2px 0 rgba(255, 255, 255, 0.0), 0 3px 1px -2px rgba(255, 255, 255, 0.0);
+    }
+
+    .overlay-text {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-flow: column;
+      height: 100%;
+    }
+
+    * {
+      transition: 0.5s;
+    }
+  </style>
+
   <script type="text/javascript">
     (function () { var e; e = function () { function e(e, t) { var n, r; this.options = { target: "instafeed", get: "popular", resolution: "thumbnail", sortBy: "none", links: !0, mock: !1, useHttp: !1 }; if (typeof e == "object") for (n in e) r = e[n], this.options[n] = r; this.context = t != null ? t : this, this.unique = this._genKey() } return e.prototype.hasNext = function () { return typeof this.context.nextUrl == "string" && this.context.nextUrl.length > 0 }, e.prototype.next = function () { return this.hasNext() ? this.run(this.context.nextUrl) : !1 }, e.prototype.run = function (t) { var n, r, i; if (typeof this.options.clientId != "string" && typeof this.options.accessToken != "string") throw new Error("Missing clientId or accessToken."); if (typeof this.options.accessToken != "string" && typeof this.options.clientId != "string") throw new Error("Missing clientId or accessToken."); return this.options.before != null && typeof this.options.before == "function" && this.options.before.call(this), typeof document != "undefined" && document !== null && (i = document.createElement("script"), i.id = "instafeed-fetcher", i.src = t || this._buildUrl(), n = document.getElementsByTagName("head"), n[0].appendChild(i), r = "instafeedCache" + this.unique, window[r] = new e(this.options, this), window[r].unique = this.unique), !0 }, e.prototype.parse = function (e) { var t, n, r, i, s, o, u, a, f, l, c, h, p, d, v, m, g, y, b, w, E, S, x, T, N, C, k, L, A, O, M, _, D; if (typeof e != "object") { if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, "Invalid JSON data"), !1; throw new Error("Invalid JSON response") } if (e.meta.code !== 200) { if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, e.meta.error_message), !1; throw new Error("Error from Instagram: " + e.meta.error_message) } if (e.data.length === 0) { if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, "No images were returned from Instagram"), !1; throw new Error("No images were returned from Instagram") } this.options.success != null && typeof this.options.success == "function" && this.options.success.call(this, e), this.context.nextUrl = "", e.pagination != null && (this.context.nextUrl = e.pagination.next_url); if (this.options.sortBy !== "none") { this.options.sortBy === "random" ? M = ["", "random"] : M = this.options.sortBy.split("-"), O = M[0] === "least" ? !0 : !1; switch (M[1]) { case "random": e.data.sort(function () { return .5 - Math.random() }); break; case "recent": e.data = this._sortBy(e.data, "created_time", O); break; case "liked": e.data = this._sortBy(e.data, "likes.count", O); break; case "commented": e.data = this._sortBy(e.data, "comments.count", O); break; default: throw new Error("Invalid option for sortBy: '" + this.options.sortBy + "'.") } } if (typeof document != "undefined" && document !== null && this.options.mock === !1) { m = e.data, A = parseInt(this.options.limit, 10), this.options.limit != null && m.length > A && (m = m.slice(0, A)), u = document.createDocumentFragment(), this.options.filter != null && typeof this.options.filter == "function" && (m = this._filter(m, this.options.filter)); if (this.options.template != null && typeof this.options.template == "string") { f = "", d = "", w = "", D = document.createElement("div"); for (c = 0, N = m.length; c < N; c++) { h = m[c], p = h.images[this.options.resolution]; if (typeof p != "object") throw o = "No image found for resolution: " + this.options.resolution + ".", new Error(o); E = p.width, y = p.height, b = "square", E > y && (b = "landscape"), E < y && (b = "portrait"), v = p.url, l = window.location.protocol.indexOf("http") >= 0, l && !this.options.useHttp && (v = v.replace(/https?:\/\//, "//")), d = this._makeTemplate(this.options.template, { model: h, id: h.id, link: h.link, type: h.type, image: v, width: E, height: y, orientation: b, caption: this._getObjectProperty(h, "caption.text"), likes: h.likes.count, comments: h.comments.count, location: this._getObjectProperty(h, "location.name") }), f += d } D.innerHTML = f, i = [], r = 0, n = D.childNodes.length; while (r < n) i.push(D.childNodes[r]), r += 1; for (x = 0, C = i.length; x < C; x++)L = i[x], u.appendChild(L) } else for (T = 0, k = m.length; T < k; T++) { h = m[T], g = document.createElement("img"), p = h.images[this.options.resolution]; if (typeof p != "object") throw o = "No image found for resolution: " + this.options.resolution + ".", new Error(o); v = p.url, l = window.location.protocol.indexOf("http") >= 0, l && !this.options.useHttp && (v = v.replace(/https?:\/\//, "//")), g.src = v, this.options.links === !0 ? (t = document.createElement("a"), t.href = h.link, t.appendChild(g), u.appendChild(t)) : u.appendChild(g) } _ = this.options.target, typeof _ == "string" && (_ = document.getElementById(_)); if (_ == null) throw o = 'No element with id="' + this.options.target + '" on page.', new Error(o); _.appendChild(u), a = document.getElementsByTagName("head")[0], a.removeChild(document.getElementById("instafeed-fetcher")), S = "instafeedCache" + this.unique, window[S] = void 0; try { delete window[S] } catch (P) { s = P } } return this.options.after != null && typeof this.options.after == "function" && this.options.after.call(this), !0 }, e.prototype._buildUrl = function () { var e, t, n; e = "https://api.instagram.com/v1"; switch (this.options.get) { case "popular": t = "media/popular"; break; case "tagged": if (!this.options.tagName) throw new Error("No tag name specified. Use the 'tagName' option."); t = "tags/" + this.options.tagName + "/media/recent"; break; case "location": if (!this.options.locationId) throw new Error("No location specified. Use the 'locationId' option."); t = "locations/" + this.options.locationId + "/media/recent"; break; case "user": if (!this.options.userId) throw new Error("No user specified. Use the 'userId' option."); t = "users/" + this.options.userId + "/media/recent"; break; default: throw new Error("Invalid option for get: '" + this.options.get + "'.") }return n = e + "/" + t, this.options.accessToken != null ? n += "?access_token=" + this.options.accessToken : n += "?client_id=" + this.options.clientId, this.options.limit != null && (n += "&count=" + this.options.limit), n += "&callback=instafeedCache" + this.unique + ".parse", n }, e.prototype._genKey = function () { var e; return e = function () { return ((1 + Math.random()) * 65536 | 0).toString(16).substring(1) }, "" + e() + e() + e() + e() }, e.prototype._makeTemplate = function (e, t) { var n, r, i, s, o; r = /(?:\{{2})([\w\[\]\.]+)(?:\}{2})/, n = e; while (r.test(n)) s = n.match(r)[1], o = (i = this._getObjectProperty(t, s)) != null ? i : "", n = n.replace(r, function () { return "" + o }); return n }, e.prototype._getObjectProperty = function (e, t) { var n, r; t = t.replace(/\[(\w+)\]/g, ".$1"), r = t.split("."); while (r.length) { n = r.shift(); if (!(e != null && n in e)) return null; e = e[n] } return e }, e.prototype._sortBy = function (e, t, n) { var r; return r = function (e, r) { var i, s; return i = this._getObjectProperty(e, t), s = this._getObjectProperty(r, t), n ? i > s ? 1 : -1 : i < s ? 1 : -1 }, e.sort(r.bind(this)), e }, e.prototype._filter = function (e, t) { var n, r, i, s, o; n = [], r = function (e) { if (t(e)) return n.push(e) }; for (i = 0, o = e.length; i < o; i++)s = e[i], r(s); return n }, e }(), function (e, t) { return typeof define == "function" && define.amd ? define([], t) : typeof module == "object" && module.exports ? module.exports = t() : e.Instafeed = t() }(this, function () { return e }) }).call(this);</script>
   <script type="text/javascript">
@@ -638,12 +720,202 @@
     portraitmainlFeed.run();
     portraitmainlallFeed.run();
   </script>
+  <script>
+    function initComparisons() {
+      var x, i;
+      /*find all elements with an "overlay" class:*/
+      x = document.getElementsByClassName("img-comp-overlay");
+      for (i = 0; i < x.length; i++) {
+        /*once for each "overlay" element:
+        pass the "overlay" element as a parameter when executing the compareImages function:*/
+        compareImages(x[i]);
+      }
+      function compareImages(img) {
+        var slider, img, clicked = 0, w, h;
+        /*get the width and height of the img element*/
+        w = img.offsetWidth;
+        h = img.offsetHeight;
+        /*set the width of the img element to 50%:*/
+        img.style.width = (w / 2) + "px";
+        /*create slider:*/
+        slider = document.createElement("DIV");
+        slider.setAttribute("class", "img-comp-slider");
+        /*insert slider*/
+        img.parentElement.insertBefore(slider, img);
+        /*position the slider in the middle:*/
+        slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+        slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+        /*execute a function when the mouse button is pressed:*/
+        slider.addEventListener("mousedown", slideReady);
+        /*and another function when the mouse button is released:*/
+        window.addEventListener("mouseup", slideFinish);
+        /*or touched (for touch screens:*/
+        slider.addEventListener("touchstart", slideReady);
+        /*and released (for touch screens:*/
+        window.addEventListener("touchstop", slideFinish);
+        function slideReady(e) {
+          /*prevent any other actions that may occur when moving over the image:*/
+          e.preventDefault();
+          /*the slider is now clicked and ready to move:*/
+          clicked = 1;
+          /*execute a function when the slider is moved:*/
+          window.addEventListener("mousemove", slideMove);
+          window.addEventListener("touchmove", slideMove);
+        }
+        function slideFinish() {
+          /*the slider is no longer clicked:*/
+          clicked = 0;
+        }
+        function slideMove(e) {
+          var pos;
+          /*if the slider is no longer clicked, exit this function:*/
+          if (clicked == 0) return false;
+          /*get the cursor's x position:*/
+          pos = getCursorPos(e)
+          /*prevent the slider from being positioned outside the image:*/
+          if (pos < 0) pos = 0;
+          if (pos > w) pos = w;
+          /*execute a function that will resize the overlay image according to the cursor:*/
+          slide(pos);
+        }
+        function getCursorPos(e) {
+          var a, x = 0;
+          e = e || window.event;
+          /*get the x positions of the image:*/
+          a = img.getBoundingClientRect();
+          /*calculate the cursor's x coordinate, relative to the image:*/
+          x = e.pageX - a.left;
+          /*consider any page scrolling:*/
+          x = x - window.pageXOffset;
+          return x;
+        }
+        function slide(x) {
+          /*resize the image:*/
+          img.style.width = x + "px";
+          /*position the slider:*/
+          slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+        }
+      }
+    }
+  </script>
   <link href="https://fonts.googleapis.com/css?family=Lato:900|Neuton:200,700&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
+<style>
+  .sidenav {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 50px;
+    left: 0;
+    right: 0;
+    background-color: rgba(38, 38, 38, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    margin: auto;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .sidenav a {
+    padding: 8px 25px 8px 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav a:last-child {
+    padding-bottom: 20px;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .menuEnter {
+    font-size: 25px;
+    margin-bottom: -5px;
+  }
+
+
+  .menuClose,
+  .contactClose {
+    margin-top: -20px;
+  }
+
+  .menuClose::before,
+  .contactClose::before {
+    content: '\00D7';
+    font-size: 80px;
+  }
+
+  .menu {
+    display: flex;
+    flex-flow: column;
+  }
+</style>
 
 <body>
   <article>
     <section>
+      <div class="fixed-one">
+        <div>
+          Portrait Main
+        </div>
+        <a href="javascript:void(0);" class="menuEnter">
+          &#9776;
+        </a>
+        <a href="javascript:void(0);" class="menuClose dn"></a>
+        <a href="javascript:void(0);" class="contactClose dn"></a>
+
+      </div>
+      <div id="mySidenav" class="sidenav">
+        <!-- menu -->
+        <div class="menu">
+          <a href="javascript:void(0);" class="contactEnter">Contact</a>
+          <a href="javascript:void(0);">Tips</a>
+          <a href="javascript:void(0);">About</a>
+        </div>
+        <!-- /menu -->
+        <!-- contact -->
+        <div class="contact overlay-text dn">
+          <div>
+            <a class="button-special" href="tel:0747332638" target="_blank">
+              <h2>0747332638</h2>
+            </a>
+            <a class="button-special" href="mailto:soalenaxlyx@yahoo.com" target="_blank">
+              <h3>soalenaxlyx@
+                <br>yahoo.com</h3>
+            </a>
+          </div>
+          <a class="button-special" href="https://goo.gl/maps/Zv9yFYr71CK2" target="_blank">
+            <div>
+              <h2>Suceava</h2>
+              <h3>Romania
+                < Europe</h3>
+            </div>
+          </a>
+
+          <div class="last">
+            <a href="https://www.facebook.com/so.alenax/" target="_blank">
+              <button>Facebook</button>
+            </a>
+            <a href="https://www.instagram.com/so.alenax/" target="_blank">
+              <button>Instagram</button>
+            </a>
+          </div>
+        </div>
+        <!-- /contact -->
+      </div>
+      <div>
+        <p></p>
+        <p></p>
+      </div>
       <div class="first">
         <a href="http://me.woance.com/">
           <button class="not bar">Ro</button>
@@ -652,63 +924,32 @@
           <button class="selected bar-space">En</button>
         </a>
       </div>
-      <!-- <span> -->
-      <div>
-        <h1>Portrait Main</h1>
-        <!-- <a href="http://me.woance.com/en">
-          <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by So Alenax</h3>
-        </a> -->
-        <h2>Overview</h2>
-        <div class="one">
-          <h2>Service(events)</h2>
-          <h3>Every service has it`s portofolio and it`s price</h3>
-        </div>
-        <div class="menu">
-          <h3 class="selected bar-right">PhotoShoot(56)</h3>
-          <h3 class="bar-center">ChristeningParty(1)</h3>
-          <h3 class="bar-left">Baby`sFirstHaircut(1)</h3>
-        </div>
-        <div class="menu">
-          <h3 class="bar-right">18thBirthday(1)</h3>
-          <h3 class="bar-center">CivilUnion(1)</h3>
-          <h3 class="bar-left">Wedding(1)</h3>
-        </div>
-        <div class="menu">
-          <h3>OtherParties(3)</h3>
-        </div>
-        <!-- <div class="menu">
-          <h3>Check also</h3>
-          <h2>:</h2>
-          <h2 class="bar-right">Macro</h2>
-          <h2 class="bar-left">Landscape</h2>
-        </div> -->
-        <div class="menu tabs">
-          <button>
-            <h4>Portfolio</h4>
-          </button>
-          <button class="tab-selected">
-            <h4>Price</h4>
-          </button>
-        </div>
+
+      <!-- <h2>Overview</h2> -->
+
+      <!-- <h2>Service(events)</h2>
+        <h3>Every service has it`s portofolio and it`s price</h3> -->
+      <div class="menu-selected">
+        <h3 class="selected bar-right">PhotoShoot(56)</h3>
       </div>
-      <!-- <div>
-        <h2>Mission</h2>
-        <h3 class="w-415">Contributing to the development of art, engineering and human needs</h3>
-      </div>
-      <div>
-        <h2>Projects</h2>
-        <a href="https://www.facebook.com/so.alenax" target="_blank">
-          <button>Portrait Main
-            <br>
-            <h5>Photography portofolio</h5>
-          </button>
-        </a>
-        <a href="https://www.facebook.com/so.alenax" target="_blank">
-          <button>Woance.. under construction</button>
-        </a>
+      <!-- <div class="menu">
+        <h3 class="selected bar-right">PhotoShoot(56)</h3>
+        <h3 class="bar-center">ChristeningParty(1)</h3>
+        <h3 class="bar-left">Baby`sFirstHaircut(1)</h3>
+        <h3 class="bar-right">18thBirthday(1)</h3>
+        <h3 class="bar-center">CivilUnion(1)</h3>
+        <h3 class="bar-left">Wedding(1)</h3>
+        <h3>OtherParties(3)</h3>
       </div> -->
 
-      <!-- </span> -->
+      <div class="menu tabs">
+        <button>
+          <h4>Portfolio</h4>
+        </button>
+        <button class="tab-selected">
+          <h4>Price</h4>
+        </button>
+      </div>
       <!-- portfolio -->
       <div class="w-800">
         <h3>Portrait</h3>
@@ -721,121 +962,8 @@
         <button class="enter lallenter">.:.</button>
       </div>
       <!-- price ------------------------------------------------------------------------------------------------------------------------>
-      <style>
-        * {
-          box-sizing: border-box;
-        }
 
-        .img-comp-container {
-          position: relative;
-          width: 300px;
-          height: 200px;
-          margin: auto;
-          /*should be the same height as the images*/
-        }
 
-        .img-comp-img {
-          position: absolute;
-          width: auto;
-          height: auto;
-          overflow: hidden;
-        }
-
-        .img-comp-img img {
-          display: block;
-          vertical-align: middle;
-        }
-
-        .img-comp-slider {
-          position: absolute;
-          z-index: 9;
-          cursor: ew-resize;
-          /*set the appearance of the slider:*/
-          width: 40px;
-          height: 40px;
-          background-color: #2196F3;
-          opacity: 0.7;
-          border-radius: 50%;
-        }
-      </style>
-      <script>
-        function initComparisons() {
-          var x, i;
-          /*find all elements with an "overlay" class:*/
-          x = document.getElementsByClassName("img-comp-overlay");
-          for (i = 0; i < x.length; i++) {
-            /*once for each "overlay" element:
-            pass the "overlay" element as a parameter when executing the compareImages function:*/
-            compareImages(x[i]);
-          }
-          function compareImages(img) {
-            var slider, img, clicked = 0, w, h;
-            /*get the width and height of the img element*/
-            w = img.offsetWidth;
-            h = img.offsetHeight;
-            /*set the width of the img element to 50%:*/
-            img.style.width = (w / 2) + "px";
-            /*create slider:*/
-            slider = document.createElement("DIV");
-            slider.setAttribute("class", "img-comp-slider");
-            /*insert slider*/
-            img.parentElement.insertBefore(slider, img);
-            /*position the slider in the middle:*/
-            slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
-            slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
-            /*execute a function when the mouse button is pressed:*/
-            slider.addEventListener("mousedown", slideReady);
-            /*and another function when the mouse button is released:*/
-            window.addEventListener("mouseup", slideFinish);
-            /*or touched (for touch screens:*/
-            slider.addEventListener("touchstart", slideReady);
-            /*and released (for touch screens:*/
-            window.addEventListener("touchstop", slideFinish);
-            function slideReady(e) {
-              /*prevent any other actions that may occur when moving over the image:*/
-              e.preventDefault();
-              /*the slider is now clicked and ready to move:*/
-              clicked = 1;
-              /*execute a function when the slider is moved:*/
-              window.addEventListener("mousemove", slideMove);
-              window.addEventListener("touchmove", slideMove);
-            }
-            function slideFinish() {
-              /*the slider is no longer clicked:*/
-              clicked = 0;
-            }
-            function slideMove(e) {
-              var pos;
-              /*if the slider is no longer clicked, exit this function:*/
-              if (clicked == 0) return false;
-              /*get the cursor's x position:*/
-              pos = getCursorPos(e)
-              /*prevent the slider from being positioned outside the image:*/
-              if (pos < 0) pos = 0;
-              if (pos > w) pos = w;
-              /*execute a function that will resize the overlay image according to the cursor:*/
-              slide(pos);
-            }
-            function getCursorPos(e) {
-              var a, x = 0;
-              e = e || window.event;
-              /*get the x positions of the image:*/
-              a = img.getBoundingClientRect();
-              /*calculate the cursor's x coordinate, relative to the image:*/
-              x = e.pageX - a.left;
-              /*consider any page scrolling:*/
-              x = x - window.pageXOffset;
-              return x;
-            }
-            function slide(x) {
-              /*resize the image:*/
-              img.style.width = x + "px";
-              /*position the slider:*/
-              slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
-            }
-          }
-        }
-      </script>
       <style>
         .w-800,
         .w-1000 {
@@ -854,70 +982,71 @@
             <u>Silver</u> and
             <u>Gold</u> to see extra options</h2>
           <h3>Contact me for personalized shooting and I will make a good offer</h3>
+
+          <main>
+            <!-- bronze -->
+            <div>
+
+              <div class="img-comp-container">
+                <div class="img-comp-img">
+                  <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+                    width="300" height="200">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                  <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+                    width="300" height="200">
+                </div>
+              </div>
+              <h3>Bronze | Standard</h3>
+              <h4>
+                <span>10&euro;</span>
+              </h4>
+              <button>Choose</button>
+            </div>
+            <!-- silver -->
+            <div>
+
+              <div class="img-comp-container">
+                <div class="img-comp-img">
+                  <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+                    width="300" height="200">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                  <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+                    width="300" height="200">
+                </div>
+              </div>
+              <h3>Silver | Standard</h3>
+              <h4>
+                <span>30&euro;</span>
+              </h4>
+              <button>Choose</button>
+            </div>
+            <!-- gold -->
+            <div>
+
+              <div class="img-comp-container">
+                <div class="img-comp-img">
+                  <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
+                    width="300" height="200">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                  <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
+                    width="300" height="200">
+                </div>
+              </div>
+              <h3>Gold | Standard</h3>
+              <h4>
+                <span>100&euro;</span>
+              </h4>
+              <button>Choose</button>
+            </div>
+          </main>
+
+
+          <h2>Practice your modeling before shooting and you
+            <u>may</u> receive a nice discount!!</h2>
         </div>
-        <main>
-          <!-- bronze -->
-          <div>
-
-            <div class="img-comp-container">
-              <div class="img-comp-img">
-                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
-                  width="300" height="200">
-              </div>
-              <div class="img-comp-img img-comp-overlay">
-                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
-                  width="300" height="200">
-              </div>
-            </div>
-            <h3>Bronze | Standard</h3>
-            <h4>
-              <span>10&euro;</span>
-            </h4>
-            <button>Choose</button>
-          </div>
-          <!-- silver -->
-          <div>
-
-            <div class="img-comp-container">
-              <div class="img-comp-img">
-                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
-                  width="300" height="200">
-              </div>
-              <div class="img-comp-img img-comp-overlay">
-                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
-                  width="300" height="200">
-              </div>
-            </div>
-            <h3>Silver | Standard</h3>
-            <h4>
-              <span>30&euro;</span>
-            </h4>
-            <button>Choose</button>
-          </div>
-          <!-- gold -->
-          <div>
-
-            <div class="img-comp-container">
-              <div class="img-comp-img">
-                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/11206533_877969815608808_1924465361475461246_o.jpg?_nc_cat=0&oh=a456bfdfd4d58c317794da0e12c5b80c&oe=5BE2E754"
-                  width="300" height="200">
-              </div>
-              <div class="img-comp-img img-comp-overlay">
-                <img src="https://scontent-otp1-1.xx.fbcdn.net/v/t31.0-8/10862500_796458490426608_5224453362241456728_o.jpg?_nc_cat=0&oh=cc9ef7a50dfadfc31a79585f570db69a&oe=5BE34903"
-                  width="300" height="200">
-              </div>
-            </div>
-            <h3>Gold | Standard</h3>
-            <h4>
-              <span>100&euro;</span>
-            </h4>
-            <button>Choose</button>
-          </div>
-        </main>
-      </div>
-      <div class="one">
-        <h2>Practice your modeling before shooting and you
-          <u>may</u> receive a nice discount!!</h2>
       </div>
       <div>
         <h2>Current Price 0$</h2>
@@ -1170,30 +1299,7 @@
       </script>
       <!-- footer -->
       <!-- <h5>*Click on any of them below for calling / email / see my location</h5> -->
-      <div>
-        <a class="button-special" href="tel:0747332638" target="_blank">
-          <h2>0747332638</h2>
-        </a>
-        <a class="button-special" href="mailto:soalenaxlyx@yahoo.com" target="_blank">
-          <h3>soalenaxlyx@yahoo.com</h3>
-        </a>
-      </div>
-      <a class="button-special" href="https://goo.gl/maps/Zv9yFYr71CK2" target="_blank">
-        <div>
-          <h2>Suceava</h2>
-          <h3>Romania
-            < Europe</h3>
-        </div>
-      </a>
 
-      <div class="last">
-        <a href="https://www.facebook.com/so.alenax/" target="_blank">
-          <button>Facebook</button>
-        </a>
-        <a href="https://www.instagram.com/so.alenax/" target="_blank">
-          <button>Instagram</button>
-        </a>
-      </div>
       <a href="https://www.me.woance.com/so.alenax/" target="_blank">
         <button class="copyright">
           &lt;/&gt; With &#10084; by So Alenax</button>
@@ -1202,15 +1308,21 @@
     </section>
   </article>
   <!-- pop-ups -->
-  <div class="pall dn">
+  <div class="overlay pall dn">
     <button class="close pallexit"></button>
     <div id="portraitmainpall" class="feed"></div>
   </div>
-  <div class="lall">
+  <div class="overlay lall">
     <div id="portraitmainlall" class="feed"></div>
   </div>
+  <!-- style -->
+  <style>
+    .dn {
+      display: none;
+    }
+  </style>
+  <!-- /style -->
   <!-- /pop-ups -->
-
   <script>
     //enter pall
     document.querySelector('.pallenter').onclick = function () {
@@ -1223,6 +1335,37 @@
       document.querySelector('article').classList.remove("dn");
     };
   </script>
+  <script>
+    document.querySelector('.menuEnter').onclick = function () {
+      document.getElementById("mySidenav").style.width = "300px";
+      document.querySelector(".menuEnter").classList.add("dn");
+      document.querySelector(".menuClose").classList.remove("dn");
+    }
+
+    document.querySelector('.menuClose').onclick = function () {
+      document.getElementById("mySidenav").style.width = "0";
+      document.querySelector(".menuEnter").classList.remove("dn");
+      document.querySelector(".menuClose").classList.add("dn");
+    }
+  </script>
+  <script>
+    //enter contact
+    document.querySelector('.contactEnter').onclick = function () {
+      document.querySelector('.menuClose').classList.add("dn");
+      document.querySelector('.menu').classList.add("dn");
+      document.querySelector('.contact').classList.remove("dn");
+      document.querySelector('.contactClose').classList.remove("dn");
+      document.querySelector('.menuClose').classList.add("dn");
+    }
+    //exit contact
+    document.querySelector('.contactClose').onclick = function () {
+      document.querySelector('.menu').classList.remove("dn");
+      document.querySelector('.contact').classList.add("dn");
+      document.querySelector('.contactClose').classList.add("dn");
+      document.querySelector('.menuClose').classList.remove("dn");
+    }
+  </script>
+
 </body>
 
 </html>
