@@ -90,6 +90,7 @@
     }
 
     .first {
+      margin-top: 70px;
       margin-bottom: 5px;
     }
 
@@ -100,13 +101,23 @@
       margin: 0 7px;
     }
 
-    h2 {
+    h2,
+    .h2 {
       font-family: 'Lato', sans-serif;
       font-size: 0.30rem;
       margin: 6px;
     }
 
-    h3 {
+    .h2 {
+      max-width: 300px;
+      text-align: right;
+      margin: auto;
+      padding-right: 40px;
+      font-size: 0.18rem;
+    }
+
+    h3,
+    .h3 {
       font-size: 0.25rem;
       letter-spacing: 0.1em;
       font-weight: normal;
@@ -186,7 +197,7 @@
     }
 
     .not {
-      /* border: transparent solid 2px; */
+      border: transparent solid 2px;
       /* color: rgba(205, 205, 205, 0.9); */
       color: rgba(38, 38, 38, 0.5);
     }
@@ -303,7 +314,7 @@
       padding-left: calc(5px + 0.15em)
     }
 
-    .close {
+    .closed {
       background: 0 0;
       border: 0;
       cursor: pointer;
@@ -319,7 +330,7 @@
       padding-left: calc(1.44em - 0.8em);
     }
 
-    .close::before {
+    .closed::before {
       color: #fff;
       content: '\00D7';
       display: block;
@@ -496,11 +507,13 @@
       color: rgba(38, 38, 38, 0.9);
     }
 
-    .table>div:first-of-type {
+    .table>div:first-of-type,
+    .table-two>div:first-of-type {
       background: rgba(38, 38, 38, 0.3);
     }
 
-    .table>div:nth-of-type(2n) {
+    .table>div:nth-of-type(2n),
+    .table-two>div:nth-of-type(2n) {
       background: rgba(38, 38, 38, 0.1);
     }
 
@@ -572,7 +585,7 @@
       top: 0;
       right: 0;
       left: 0;
-      background-color: rgba(38, 38, 38, 0.9);
+      background-color: rgba(38, 38, 38, 1);
       z-index: 9999;
       color: rgba(249, 249, 249, 0.9);
       margin: 0;
@@ -588,7 +601,7 @@
       margin-left: 65px;
     }
 
-    .overlay {
+    /* .overlay {
       color: white;
     }
 
@@ -600,7 +613,7 @@
     .overlay button:hover {
       color: white;
       box-shadow: 0 1px 5px 0 rgba(255, 255, 255, 0.0), 0 2px 2px 0 rgba(255, 255, 255, 0.0), 0 3px 1px -2px rgba(255, 255, 255, 0.0);
-    }
+    } */
 
     .overlay-text {
       display: flex;
@@ -613,6 +626,8 @@
     * {
       transition: 0.5s;
     }
+
+    .tabs {}
   </style>
 
   <script type="text/javascript">
@@ -801,7 +816,81 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:900|Neuton:200,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<!-- option form -->
+<style>
+  /*the container must be positioned relative:*/
 
+  .custom-select {
+    position: relative;
+    text-align: right;
+
+  }
+
+  .custom-select select {
+    display: none;
+    /*hide original SELECT element:*/
+  }
+
+  .select-selected {
+    background-color: rgba(38, 38, 38, 1);
+  }
+
+  /*style the arrow inside the select element:*/
+
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+
+  /*point the arrow upwards when the select box is open (active):*/
+
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+
+  /*style the items (options), including the selected item:*/
+
+  .select-items div,
+  .select-selected {
+    color: #ffffff;
+    padding: 8px;
+    padding-right: 32px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /*style items (options):*/
+
+  .select-items {
+    position: absolute;
+    background-color: rgba(38, 38, 38, 1);
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  /*hide the items when the select box is closed:*/
+
+  .select-hide {
+    display: none;
+  }
+
+  .select-items div:hover,
+  .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+</style>
+<!-- menu -->
 <style>
   .sidenav {
     width: 0;
@@ -810,7 +899,7 @@
     top: 50px;
     left: 0;
     right: 0;
-    background-color: rgba(38, 38, 38, 0.9);
+    background-color: rgba(38, 38, 38, 1);
     overflow-x: hidden;
     transition: 0.5s;
     margin: auto;
@@ -818,6 +907,7 @@
     border-bottom-left-radius: 2px;
     text-align: right;
     align-items: flex-end;
+    color: #f1f1f1;
   }
 
   .sidenav a {
@@ -837,19 +927,26 @@
     color: #f1f1f1;
   }
 
+  .sidenav button {
+    color: #818181;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.0), 0 2px 2px 0 rgba(0, 0, 0, 0.0), 0 3px 1px -2px rgba(0, 0, 0, 0.0);
+  }
+
+  .sidenav button:hover {
+    color: #f1f1f1;
+  }
+
   .menuEnter {
     font-size: 25px;
     margin-bottom: -5px;
   }
 
 
-  .menuClose,
-  .contactClose {
+  .close {
     margin-top: -20px;
   }
 
-  .menuClose::before,
-  .contactClose::before {
+  .close::before {
     content: '\00D7';
     font-size: 80px;
   }
@@ -857,6 +954,147 @@
   .menu {
     display: flex;
     flex-flow: column;
+  }
+</style>
+<!-- accordion -->
+<style>
+  .tab {
+    position: relative;
+    margin-bottom: 1px;
+    width: 100%;
+    /* color: #fff; */
+    overflow: hidden;
+    display: block;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  label {
+    position: relative;
+    display: block;
+    padding: 0 0 0 1em;
+    /* background: #16a085; */
+    font-weight: bold;
+    line-height: 3;
+    cursor: pointer;
+  }
+
+  /* .blue label {
+    background: #2980b9;
+  } */
+
+  .tab-content {
+    display: none;
+    overflow: hidden;
+    /* background: #1abc9c; */
+    -webkit-transition: max-height .35s;
+    -o-transition: max-height .35s;
+    transition: max-height .35s;
+  }
+
+  /* .blue .tab-content {
+    background: #3498db;
+  } */
+
+  .tab-content p {
+    margin: 1em;
+  }
+
+  /* :checked */
+
+  input:checked~.tab-content {
+    display: block;
+  }
+
+  input:checked~.tab-content>div {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Icon */
+
+  label::after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 1em;
+    height: 1em;
+    line-height: 3;
+    text-align: center;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+  }
+
+  input[type=checkbox]+label::after {
+    content: "+";
+  }
+
+  input[type=radio]+label::after {
+    content: "\25BC";
+  }
+
+  input[type=checkbox]:checked+label::after {
+    transform: rotate(315deg);
+  }
+
+  input[type=radio]:checked+label::after {
+    transform: rotateX(180deg);
+    top: 36px;
+  }
+</style>
+<!-- tabs -->
+<style>
+  /* Style the tab */
+
+  .tab-two {
+    overflow: hidden;
+    display: flex;
+    flex-flow: row;
+  }
+
+  /* Style the buttons inside
+the tab */
+
+  .tab-two button {
+    background-color: inherit;
+    /* float: left; */
+    /* border: none; */
+    /* outline: none; */
+    /* cursor: pointer; */
+    /* padding: 14px 16px; */
+    transition: 0.3s;
+    /* font-size: 17px; */
+    border: 2px solid transparent;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.0), 0 2px 2px 0 rgba(0, 0, 0, 0.0), 0 3px 1px -2px rgba(0, 0, 0, 0.0);
+  }
+
+  /* Change background color of buttons on hover */
+
+  /* .tab-two button:hover {
+    background-color: #ddd;
+  } */
+
+  /* Create an active/current tablink class */
+
+  .tab-two button.active {
+    border-bottom: 5px solid rgba(38, 38, 38, 1);
+    font-weight: bold;
+  }
+
+  /* Style the tab content
+*/
+
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    /* border: 1px solid #ccc; */
+    border-top: none;
   }
 </style>
 
@@ -870,16 +1108,17 @@
         <a href="javascript:void(0);" class="menuEnter">
           &#9776;
         </a>
-        <a href="javascript:void(0);" class="menuClose dn"></a>
-        <a href="javascript:void(0);" class="contactClose dn"></a>
-
+        <a href="javascript:void(0);" class="menuClose close dn"></a>
+        <a href="javascript:void(0);" class="contactClose close dn"></a>
+        <a href="javascript:void(0);" class="tipsClose close dn"></a>
+        <a href="javascript:void(0);" class="aboutClose close dn"></a>
       </div>
       <div id="mySidenav" class="sidenav">
         <!-- menu -->
         <div class="menu">
           <a href="javascript:void(0);" class="contactEnter">Contact</a>
-          <a href="javascript:void(0);">Tips</a>
-          <a href="javascript:void(0);">About</a>
+          <a href="javascript:void(0);" class="tipsEnter">Tips</a>
+          <a href="javascript:void(0);" class="aboutEnter">About</a>
         </div>
         <!-- /menu -->
         <!-- contact -->
@@ -911,10 +1150,38 @@
           </div>
         </div>
         <!-- /contact -->
-      </div>
-      <div>
-        <p></p>
-        <p></p>
+        <!-- tips -->
+        <div class="tips overlay-text dn">
+          <div>
+            <h2>Service(number of events)</h2>
+            <h3>Every service has it`s portofolio and it`s price</h3>
+            <!-- <h2>Choose between
+              <u>Bronze</u>,
+              <u>Silver</u> and
+              <u>Gold</u> to see extra options</h2> -->
+            <h3>Contact me for personalized shooting and I will make a good offer</h3>
+            <h3>Practice your modeling before shooting and you
+              <u>may</u> receive a nice discount!!</h3>
+          </div>
+        </div>
+        <!-- /tips -->
+        <!-- about -->
+        <div class="about overlay-text dn">
+          <div>
+            <h2>My name is Alin-Florin Cioban</h2>
+            <h3>I`m based on Suceava.
+              <br> I have started photography in 2012.
+              <br> I started with portraits, until I becomed a master.
+              <br> In 2014 I have tryed macro, until I mastered the fine details.
+              <br> In 2018 I have started events photography, I`m on my way to master.
+              <br> Contact me, and you will be glad that you choosen me.
+              <!-- <br> I know how to attract your attention. -->
+              <br> I know how to direct a model.
+              <br> If you love photography, you will love me too.
+            </h3>
+          </div>
+        </div>
+        <!-- /about -->
       </div>
       <div class="first">
         <a href="http://me.woance.com/">
@@ -927,41 +1194,49 @@
 
       <!-- <h2>Overview</h2> -->
 
-      <!-- <h2>Service(events)</h2>
-        <h3>Every service has it`s portofolio and it`s price</h3> -->
-      <div class="menu-selected">
-        <h3 class="selected bar-right">PhotoShoot(56)</h3>
-      </div>
-      <!-- <div class="menu">
-        <h3 class="selected bar-right">PhotoShoot(56)</h3>
-        <h3 class="bar-center">ChristeningParty(1)</h3>
-        <h3 class="bar-left">Baby`sFirstHaircut(1)</h3>
-        <h3 class="bar-right">18thBirthday(1)</h3>
-        <h3 class="bar-center">CivilUnion(1)</h3>
-        <h3 class="bar-left">Wedding(1)</h3>
-        <h3>OtherParties(3)</h3>
-      </div> -->
 
-      <div class="menu tabs">
+      <h2>Please select a service</h2>
+
+      <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
+      <h3>
+        <div class="custom-select" style="width:300px;">
+          <select>
+            <option value="0">PhotoShoot(56)</option>
+            <option value="1">ChristeningParty(1)</option>
+            <option value="2">Baby`sFirstHaircut(1)</option>
+            <option value="3">18thBirthday(1)</option>
+            <option value="4">CivilUnion(1)</option>
+            <option value="5">Wedding(1)</option>
+            <option value="6">OtherParties(3)</option>
+          </select>
+        </div>
+      </h3>
+      <!-- <div class="menu-two tabs">
         <button>
           <h4>Portfolio</h4>
         </button>
         <button class="tab-selected">
           <h4>Price</h4>
         </button>
+      </div> -->
+      <div class="tab-two">
+        <button class="tablinks" onclick="openCity(event, 'Portfolio')">Portfolio</button>
+        <button class="tablinks active" onclick="openCity(event, 'Price')">Price</button>
       </div>
       <!-- portfolio -->
-      <div class="w-800">
-        <h3>Portrait</h3>
-        <div id="portraitmainp" class="feed"></div>
-        <button class="enter pallenter">.:.</button>
+      <div id="Portfolio" class="tabcontent">
+        <div class="w-800">
+          <h3>Portrait</h3>
+          <div id="portraitmainp" class="feed"></div>
+          <button class="enter pallenter">.:.</button>
+        </div>
+        <div class="w-1000">
+          <h3>Portrait L-Style</h3>
+          <div id="portraitmainl" class="feed"></div>
+          <button class="enter lallenter">.:.</button>
+        </div>
       </div>
-      <div class="w-1000">
-        <h3>Portrait L-Style</h3>
-        <div id="portraitmainl" class="feed"></div>
-        <button class="enter lallenter">.:.</button>
-      </div>
-      <!-- price ------------------------------------------------------------------------------------------------------------------------>
+      <!-- pricing ------------------------------------------------------------------------------------------------------------------------>
 
 
       <style>
@@ -970,19 +1245,12 @@
           display: none;
         }
       </style>
-      <!-- <div>
-        <h3>Silver</h3>
-        <h3>Gold</h3>
-        <h3>Bronze</h3>
-      </div> -->
-      <div>
-        <div class="one">
-          <h2>Choose between
-            <u>Bronze</u>,
-            <u>Silver</u> and
-            <u>Gold</u> to see extra options</h2>
-          <h3>Contact me for personalized shooting and I will make a good offer</h3>
 
+      <!-- accordion -->
+      <div class="tab blue h3">
+        <input id="tab-four" type="radio" name="tabs2" checked="checked">
+        <label for="tab-four" class="h2">Demo</label>
+        <div class="tab-content">
           <main>
             <!-- bronze -->
             <div>
@@ -1042,126 +1310,123 @@
               <button>Choose</button>
             </div>
           </main>
-
-
-          <h2>Practice your modeling before shooting and you
-            <u>may</u> receive a nice discount!!</h2>
         </div>
       </div>
-      <div>
-        <h2>Current Price 0$</h2>
-        <buttton>Book</buttton>
-      </div>
-      <div class="table">
-        <div>
-          <div>Packet</div>
-          <div>Price</div>
-          <div>On the field</div>
-          <div>Model indications</div>
-          <div>White Balance Adjustment</div>
-          <div>Exposure Adjustment</div>
-          <div>Details Accentuation</div>
-          <div>Composition Ensure</div>
-          <div>Art Style</div>
-          <div>Color Boost</div>
-          <div>Image Manipulation</div>
-          <div>Frame</div>
-          <div>Brand Color</div>
-          <div>Gold Images</div>
-          <div>Silver Images</div>
-          <div>Bronze Images</div>
-          <div></div>
-        </div>
-        <!-- Bronze -->
-        <div>
-          <div>Bronze</div>
-          <div>
+      <div class="tab blue h3">
+        <input id="tab-five" type="radio" name="tabs2">
+        <label for="tab-five" class="h2">Price by Packet</label>
+        <div class="tab-content">
+          <div class="table">
             <div>
-              <div>10$</div>
-              <div>(-80%)</div>
-              <div>50$</div>
+              <div>Packet</div>
+              <div>Price</div>
+              <div>On the field</div>
+              <div>Model indications</div>
+              <div>White Balance Adjustment</div>
+              <div>Exposure Adjustment</div>
+              <div>Details Accentuation</div>
+              <div>Composition Ensure</div>
+              <div>Art Style</div>
+              <div>Color Boost</div>
+              <div>Image Manipulation</div>
+              <div>Frame</div>
+              <div>Brand Color</div>
+              <div>Gold Images</div>
+              <div>Silver Images</div>
+              <div>Bronze Images</div>
+              <div></div>
             </div>
-          </div>
-          <div>30min</div>
-          <div>Approximative</div>
-          <div>Approximative</div>
-          <div>Approximative</div>
-          <div>-</div>
-          <div>-</div>
-          <div>-</div>
-          <div>-</div>
-          <div>-</div>
-          <div>-</div>
-          <div>-</div>
-          <div>-</div>
-          <div>-</div>
-          <div>All</div>
-          <div>
-            <button>Choose</button>
-          </div>
-        </div>
-        <!-- Silver -->
-        <div>
-          <div>Silver</div>
-          <div>
+            <!-- Bronze -->
             <div>
-              <div>30$</div>
-              <div>(-75%)</div>
-              <div>120$</div>
+              <div>Bronze</div>
+              <div>
+                <div>
+                  <div>10$</div>
+                  <div>(-80%)</div>
+                  <div>50$</div>
+                </div>
+              </div>
+              <div>30min</div>
+              <div>Approximative</div>
+              <div>Approximative</div>
+              <div>Approximative</div>
+              <div>-</div>
+              <div>-</div>
+              <div>-</div>
+              <div>-</div>
+              <div>-</div>
+              <div>-</div>
+              <div>-</div>
+              <div>-</div>
+              <div>-</div>
+              <div>All</div>
+              <div>
+                <button>Choose</button>
+              </div>
             </div>
-          </div>
-          <div>60min</div>
-          <div>Accurate</div>
-          <div>Accurate</div>
-          <div>Accurate</div>
-          <div>Yes</div>
-          <div>Yes</div>
-          <div>Yes</div>
-          <div>-</div>
-          <div>-</div>
-          <div>Yes</div>
-          <div>Black</div>
-          <div>-</div>
-          <div>[6] 3you / 3me</div>
-          <div>Rest of them</div>
-          <div>
-            <button>Choose</button>
-          </div>
-        </div>
-        <!-- gold -->
-        <div>
-          <div>Gold</div>
-          <div>
+            <!-- Silver -->
             <div>
-              <div>160$</div>
-              <div>(-46%)</div>
-              <div>300$</div>
+              <div>Silver</div>
+              <div>
+                <div>
+                  <div>30$</div>
+                  <div>(-75%)</div>
+                  <div>120$</div>
+                </div>
+              </div>
+              <div>60min</div>
+              <div>Accurate</div>
+              <div>Accurate</div>
+              <div>Accurate</div>
+              <div>Yes</div>
+              <div>Yes</div>
+              <div>Yes</div>
+              <div>-</div>
+              <div>-</div>
+              <div>Yes</div>
+              <div>Black</div>
+              <div>-</div>
+              <div>[6] 3you / 3me</div>
+              <div>Rest of them</div>
+              <div>
+                <button>Choose</button>
+              </div>
             </div>
-          </div>
-          <div>90min</div>
-          <div>Accurate</div>
-          <div>Accurate</div>
-          <div>Accurate</div>
-          <div>Yes</div>
-          <div>Yes</div>
-          <div>Yes</div>
-          <div>Yes</div>
-          <div>Yes</div>
-          <div>Yes</div>
-          <div>Gold</div>
-          <div>[4] 2you/2me</div>
-          <div>[6] 3you / 3me</div>
-          <div>Rest of them</div>
-          <div>
-            <button>Choose</button>
+            <!-- gold -->
+            <div>
+              <div>Gold</div>
+              <div>
+                <div>
+                  <div>160$</div>
+                  <div>(-46%)</div>
+                  <div>300$</div>
+                </div>
+              </div>
+              <div>90min</div>
+              <div>Accurate</div>
+              <div>Accurate</div>
+              <div>Accurate</div>
+              <div>Yes</div>
+              <div>Yes</div>
+              <div>Yes</div>
+              <div>Yes</div>
+              <div>Yes</div>
+              <div>Yes</div>
+              <div>Gold</div>
+              <div>[4] 2you/2me</div>
+              <div>[6] 3you / 3me</div>
+              <div>Rest of them</div>
+              <div>
+                <button>Choose</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-
-      <div class="tables">
-        <div>
-          <h2>Optionals after Packet</h2>
+      <div class="tab blue h3">
+        <input id="tab-six" type="radio" name="tabs2">
+        <label for="tab-six" class="h2">Optionals after Packet</label>
+        <div class="tab-content">
           <div class="table-two op-packet">
             <div>
               <div>Collage</div>
@@ -1216,8 +1481,11 @@
             </div>
           </div>
         </div>
-        <div>
-          <h2>Optionals on the field</h2>
+      </div>
+      <div class="tab blue h3">
+        <input id="tab-seven" type="radio" name="tabs2">
+        <label for="tab-seven" class="h2">Optionals on the field</label>
+        <div class="tab-content">
           <div class="table-two">
             <div>
               <div>Natural Light Diffuser
@@ -1289,6 +1557,9 @@
           </div>
         </div>
       </div>
+      </div>
+      </div>
+      <!-- advice -->
       <div class="one">
         <h2>You can bring your toys too.</h2>
         <h3>Inspire me and may will receive a nice discount!!</h3>
@@ -1336,12 +1607,13 @@
     };
   </script>
   <script>
+    //enter menu
     document.querySelector('.menuEnter').onclick = function () {
       document.getElementById("mySidenav").style.width = "300px";
       document.querySelector(".menuEnter").classList.add("dn");
       document.querySelector(".menuClose").classList.remove("dn");
     }
-
+    //close menu
     document.querySelector('.menuClose').onclick = function () {
       document.getElementById("mySidenav").style.width = "0";
       document.querySelector(".menuEnter").classList.remove("dn");
@@ -1357,7 +1629,7 @@
       document.querySelector('.contactClose').classList.remove("dn");
       document.querySelector('.menuClose').classList.add("dn");
     }
-    //exit contact
+    //close contact
     document.querySelector('.contactClose').onclick = function () {
       document.querySelector('.menu').classList.remove("dn");
       document.querySelector('.contact').classList.add("dn");
@@ -1365,6 +1637,155 @@
       document.querySelector('.menuClose').classList.remove("dn");
     }
   </script>
+  <script>
+    //enter tips
+    document.querySelector('.tipsEnter').onclick = function () {
+      document.querySelector('.menuClose').classList.add("dn");
+      document.querySelector('.menu').classList.add("dn");
+      document.querySelector('.tips').classList.remove("dn");
+      document.querySelector('.tipsClose').classList.remove("dn");
+      document.querySelector('.menuClose').classList.add("dn");
+    }
+    //close tips
+    document.querySelector('.tipsClose').onclick = function () {
+      document.querySelector('.menu').classList.remove("dn");
+      document.querySelector('.tips').classList.add("dn");
+      document.querySelector('.tipsClose').classList.add("dn");
+      document.querySelector('.menuClose').classList.remove("dn");
+    }
+  </script>
+  <script>
+    //enter about
+    document.querySelector('.aboutEnter').onclick = function () {
+      document.querySelector('.menuClose').classList.add("dn");
+      document.querySelector('.menu').classList.add("dn");
+      document.querySelector('.about').classList.remove("dn");
+      document.querySelector('.aboutClose').classList.remove("dn");
+      document.querySelector('.menuClose').classList.add("dn");
+    }
+    //close about
+    document.querySelector('.aboutClose').onclick = function () {
+      document.querySelector('.menu').classList.remove("dn");
+      document.querySelector('.about').classList.add("dn");
+      document.querySelector('.aboutClose').classList.add("dn");
+      document.querySelector('.menuClose').classList.remove("dn");
+    }
+  </script>
+  <!-- accordion -->
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        var panel = this.nextElementSibling;
+        for (j = 0; j < acc.length; j++) {
+          if (acc[j].classList.contains("active")) {
+            acc[j].classList.remove("active");
+            panel.classList.add("dn");
+          }
+        }
+
+        this.classList.add("active");
+
+        // if (panel.classList.contains("dn")) {
+        document.querySelector('.panel').classList.add("dn");
+        panel.classList.remove("dn");
+        // return 0;
+        // }
+      });
+    }
+  </script>
+  <!-- tabs -->
+  <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+  <!-- custom select -->
+  <script>
+    var x, i, j, selElmnt, a, b, c;
+    /*look for any elements with the class "custom-select":*/
+    x = document.getElementsByClassName("custom-select");
+    for (i = 0; i < x.length; i++) {
+      selElmnt = x[i].getElementsByTagName("select")[0];
+      /*for each element, create a new DIV that will act as the selected item:*/
+      a = document.createElement("DIV");
+      a.setAttribute("class", "select-selected");
+      a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+      x[i].appendChild(a);
+      /*for each element, create a new DIV that will contain the option list:*/
+      b = document.createElement("DIV");
+      b.setAttribute("class", "select-items select-hide");
+      for (j = 0; j < selElmnt.length; j++) {
+        /*for each option in the original select element,
+        create a new DIV that will act as an option item:*/
+        c = document.createElement("DIV");
+        c.innerHTML = selElmnt.options[j].innerHTML;
+        c.addEventListener("click", function (e) {
+          /*when an item is clicked, update the original select box,
+          and the selected item:*/
+          var y, i, k, s, h;
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          h = this.parentNode.previousSibling;
+          for (i = 0; i < s.length; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              for (k = 0; k < y.length; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+        });
+        b.appendChild(c);
+      }
+      x[i].appendChild(b);
+      a.addEventListener("click", function (e) {
+        /*when the select box is clicked, close any other select boxes,
+        and open/close the current select box:*/
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+      });
+    }
+    function closeAllSelect(elmnt) {
+      /*a function that will close all select boxes in the document,
+      except the current select box:*/
+      var x, y, i, arrNo = [];
+      x = document.getElementsByClassName("select-items");
+      y = document.getElementsByClassName("select-selected");
+      for (i = 0; i < y.length; i++) {
+        if (elmnt == y[i]) {
+          arrNo.push(i)
+        } else {
+          y[i].classList.remove("select-arrow-active");
+        }
+      }
+      for (i = 0; i < x.length; i++) {
+        if (arrNo.indexOf(i)) {
+          x[i].classList.add("select-hide");
+        }
+      }
+    }
+    /*if the user clicks anywhere outside the select box,
+    then close all select boxes:*/
+    document.addEventListener("click", closeAllSelect);</script>
 
 </body>
 
